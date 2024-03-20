@@ -2,3 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    @font-face {
+      font-family: 'Dreambig';  /* Normal */
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url("../fonts/Dreambig-WynEV.otf") format("opentype");
+    }
+    @font-face {
+        font-family: 'Santika';  /* Italic */
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("../fonts/Santikascript-3z4Xy.otf") format("opentype");
+      }
+  }

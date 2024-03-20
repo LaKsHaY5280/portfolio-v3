@@ -2,16 +2,25 @@ const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import type { Config } from "tailwindcss";
+
+const config: Config = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   darkMode: "class",
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        day: "#e5d4ce",
+        night: "#090c08",
+        mid: "#696773",
+        primary: "#629460",
+        secondary: "#012622",
+      },
+    },
   },
   plugins: [addVariablesForColors],
 };
@@ -27,3 +36,4 @@ function addVariablesForColors({ addBase, theme }: any) {
     ":root": newVars,
   });
 }
+export default config;
