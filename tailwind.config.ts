@@ -14,11 +14,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        day: "#e5d4ce",
+        day: "#e4d6a7",
         night: "#090c08",
         mid: "#696773",
-        primary: "#629460",
-        secondary: "#012622",
+        primary: "#846c5b",
+        secondary: "#1C110A",
       },
     },
   },

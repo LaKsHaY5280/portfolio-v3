@@ -1,2 +1,3 @@
 import logo from "./logo.svg";
-export { logo };
+import msg from "./msg.svg";
+export { logo, msg };
