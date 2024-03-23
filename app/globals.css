@@ -4,11 +4,11 @@
 
 @layer base {
     @font-face {
-      font-family: 'Dreambig';  /* Normal */
+      font-family: 'Snow';  /* Normal */
       font-style: normal;
       font-weight: 400;
       font-display: swap;
-      src: url("../fonts/Dreambig-WynEV.otf") format("opentype");
+      src: url("../fonts/SnowPuppetsPersonalUseMedium-1G8vj.ttf") format("truetype");
     }
     @font-face {
         font-family: 'Santika';  /* Italic */

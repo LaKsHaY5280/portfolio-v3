@@ -24,7 +24,7 @@ const SiteLoader = ({ logo }: SiteLoaderProps) => {
       >
         <p
           id="logoBoxP"
-          className={` font-['Santika'] text-day text-6xl w-full h-full flex justify-center items-center text-[40rem] overflow-hidden`}
+          className={` font-['Santika'] text-day flex justify-center items-center text-[40rem] overflow-hidden`}
         >
           {logo}
         </p>

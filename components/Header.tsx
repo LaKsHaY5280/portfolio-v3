@@ -1,8 +1,10 @@
 "use client";
 import { motion, useAnimate, useInView } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Msg from "@/assets/Msg";
 import SiteLoader from "@/components/elements/SiteLoader";
+import Arrow from "@/assets/Arrow";
+import Navbar from "./elements/Navbar";
 
 const Header = () => {
   const [scope, animate] = useAnimate();
@@ -48,7 +50,7 @@ const Header = () => {
     animate(
       "#bgDiv",
       {
-        backgroundColor: "#e4d6a7",
+        backgroundColor: "#e4d6a7", //day
       },
       {
         duration: 1,
@@ -58,7 +60,17 @@ const Header = () => {
     animate(
       "#textBox",
       {
-        color: "#090c08",
+        color: "#090c08", //night
+      },
+      {
+        duration: 1,
+        delay: 0.5,
+      }
+    );
+    await animate(
+      "#logoBoxP",
+      {
+        color: "#1C110A", //secondary
       },
       {
         duration: 1,
@@ -66,23 +78,102 @@ const Header = () => {
       }
     );
     animate(
-      "#logoBoxP",
+      "#highlight1",
       {
-        color: "#1C110A",
+        backgroundColor: "#846c5b", //primary
+        right: "100%",
+        width: "100%",
+        height: "100%",
       },
       {
-        duration: 1,
+        duration: 0.5,
         delay: 0.5,
+        ease: "easeInOut",
+      }
+    );
+    await animate(
+      "#highlight2",
+      {
+        backgroundColor: "#846c5b", //primary
+        right: "100%",
+        width: "100%",
+        height: "100%",
+      },
+      {
+        duration: 0.5,
+        delay: 0.5,
+        ease: "easeInOut",
+      }
+    );
+    animate(
+      "#navLi1",
+      {
+        backgroundColor: "#1C110A", //secondary
+        y: 0,
+      },
+      {
+        duration: 0.5,
+        delay: 0.5,
+        ease: "easeInOut",
+      }
+    );
+    animate(
+      "#navLi2",
+      {
+        backgroundColor: "#1C110A", //secondary
+        y: 0,
+      },
+      {
+        duration: 0.5,
+        delay: 0.5,
+        ease: "easeInOut",
+      }
+    );
+    animate(
+      "#navLi3",
+      {
+        backgroundColor: "#1C110A", //secondary
+        y: 0,
+      },
+      {
+        duration: 0.5,
+        delay: 0.5,
+        ease: "easeInOut",
+      }
+    );
+    animate(
+      "#navLi4",
+      {
+        backgroundColor: "#1C110A", //secondary
+        y: 0,
+      },
+      {
+        duration: 0.5,
+        delay: 0.5,
+        ease: "easeInOut",
+      }
+    );
+    animate(
+      "#navLi5",
+      {
+        backgroundColor: "#1C110A", //secondary
+        y: 0,
+      },
+      {
+        duration: 0.5,
+        delay: 0.5,
+        ease: "easeInOut",
       }
     );
   };
 
   return (
-    <div ref={scope}>
+    <div ref={scope} id="home">
+      <Navbar />
       <SiteLoader logo="L" />
       <motion.div
         id="textBox"
-        className={` absolute text-day z-20 top-1/3 left-[40%] flex flex-col justify-betweeb items-start gap-10 overflow-hidden`}
+        className={` absolute text-day z-20 top-[30%] left-[40%] flex flex-col justify-betweeb items-start gap-10 overflow-hidden pr-28`}
         initial={{
           x: -100,
           y: 0,
@@ -93,20 +184,48 @@ const Header = () => {
           <div className=" flex justify-center items-center">
             <Msg color={"#846c5b"} />
           </div>
-          <p>
-            Hi, I'm
+          <p className=" text-6xl tracking-wider font-['Snow'] mt-2">
+            Hi, I'm{" "}
             <span className=" font-['Santika'] text-primary underline decoration-secondary underline-offset-8">
-              {" "}
               Lakshay Goyal
             </span>
           </p>
         </div>
-        <div className=" text-2xl leading-10">
-          A Web/App Developer who thrives in <span> problem solving </span> and
-          captivity in <span> collaborative spaces</span>.
-        </div>
-        <div className=" text-lg">
-          Currently an employee at (link arrow) LaungLaachi.
+        <p className=" text-4xl leading-[3.5rem] tracking-[0.3rem] font-['Snow']">
+          A Web/App Developer who thrives in
+          <span className=" px-1 mx-1 relative">
+            problem solving
+            <motion.span
+              id="highlight1"
+              className=" absolute top-2 bottom-1 left-0 right-0 z-[-1]"
+              initial={{
+                right: 0,
+                width: 0,
+                height: "100%",
+              }}
+            />
+          </span>
+          and captivity in
+          <span className=" px-1 mx-1 relative">
+            collaborative spaces
+            <motion.span
+              id="highlight2"
+              className=" absolute top-1 bottom-1 left-0 right-0 z-[-1]"
+              initial={{
+                right: 0,
+                width: 0,
+                height: "100%",
+              }}
+            />
+          </span>
+          .
+        </p>
+        <div className=" leading-[3.75rem] tracking-[0.2rem] font-['Snow'] text-2xl flex justify-start items-center gap-1">
+          Currently an employee at{" "}
+          <span className=" -rotate-45 text-4xl">
+            <Arrow />
+          </span>{" "}
+          LaungLaachi.
         </div>
       </motion.div>
     </div>
