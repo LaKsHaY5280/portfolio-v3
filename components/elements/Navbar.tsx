@@ -2,58 +2,37 @@
 import { motion } from "framer-motion";
 
 const Navbar = () => {
+
   const liClasses =
-    "bg-secondary flex justify-center items-end pb-2 w-32 border border-primary border-t-0 text-xl leading-[3rem] tracking-[0.1rem] font-['Snow'] text-day";
+    "bg-secondary flex justify-center items-end pb-2 w-32 border border-primary border-t-0 text-xl leading-[3rem] tracking-[0.1rem] font-['Snow'] text-day ";
+
+  const navlinks = [
+    { name: "Home", link: "/", id: "navLi1" },
+    { name: "About", link: "/about", id: "navLi2" },
+    { name: "Experience", link: "/experience", id: "navLi3" },
+    { name: "Skills", link: "/skills", id: "navLi4" },
+    { name: "Project", link: "/project", id: "navLi5" },
+    { name: "Contact", link: "/contact", id: "navLi6" },
+  ];
 
   return (
     <div className=" absolute z-20 right-0 ">
       <nav className=" w-full">
         <ul className=" w-full flex justify-end items-start  ">
-          <motion.li
-            id="navLi1"
-            className={` ${liClasses} h-[4rem] `}
-            initial={{
-              y: -200,
-            }}
-          >
-            <a href="#home">Home</a>
-          </motion.li>
-          <motion.li
-            id="navLi2"
-            className={` ${liClasses} h-[6rem] `}
-            initial={{
-              y: -200,
-            }}
-          >
-            <a href="#about">About</a>
-          </motion.li>
-          <motion.li
-            id="navLi3"
-            className={` ${liClasses} h-[8rem] `}
-            initial={{
-              y: -200,
-            }}
-          >
-            <a href="#">Experience</a>
-          </motion.li>
-          <motion.li
-            id="navLi4"
-            className={` ${liClasses} h-[10rem] `}
-            initial={{
-              y: -200,
-            }}
-          >
-            <a href="#">Skills</a>
-          </motion.li>
-          <motion.li
-            id="navLi5"
-            className={` ${liClasses} h-[12rem] `}
-            initial={{
-              y: -200,
-            }}
-          >
-            <a href="#">Project</a>
-          </motion.li>
+          {navlinks.map((navlink, i) => {
+            return (
+              <motion.li
+                key={i}
+                id={navlink.id}
+                className={` ${liClasses} h-[${2 * (i + 2)}rem] `}
+                initial={{
+                  y: -300,
+                }}
+              >
+                <a href={navlink.link}>{navlink.name}</a>
+              </motion.li>
+            );
+          })}
         </ul>
       </nav>
     </div>

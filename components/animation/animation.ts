@@ -1,0 +1,93 @@
+import { animate } from "framer-motion";
+
+export const heroAnimation = async () => {
+  await animate("#logoBox", {
+    x: [0, 0, 0],
+    y: [0, 0, 100],
+    opacity: 1,
+    scaleY: [0, 1.2, 1],
+    scaleX: [0, 1.2, 1],
+  });
+  await animate(
+    "#logoBox",
+    {
+      x: [0, -400],
+      y: [100, 100],
+      opacity: 1,
+    },
+    {
+      duration: 0.5,
+      delay: 0.1,
+    }
+  );
+  await animate(
+    "#textBox",
+    {
+      x: 0,
+      opacity: 1,
+    },
+    {
+      duration: 1,
+      delay: 0.5,
+    }
+  );
+  animate(
+    "#bgDiv",
+    {
+      backgroundColor: "#e4d6a7", //day
+    },
+    {
+      duration: 1,
+      delay: 0.5,
+    }
+  );
+  animate(
+    "#textBox",
+    {
+      color: "#090c08", //night
+    },
+    {
+      duration: 1,
+      delay: 0.5,
+    }
+  );
+  await animate(
+    "#logoBoxP",
+    {
+      color: "#1C110A", //secondary
+    },
+    {
+      duration: 1,
+      delay: 0.5,
+    }
+  );
+  for (let i = 1; i <= 2; i++) {
+    await animate(
+      `#highlight${i}`,
+      {
+        backgroundColor: "#846c5b", //primary
+        right: "100%",
+        width: "100%",
+        height: "100%",
+      },
+      {
+        duration: 0.5,
+        ease: "easeInOut",
+      }
+    );
+  }
+};
+
+export const navAnimation = async () => {
+  for (let i = 1; i <= 6; i++) {
+    await animate(
+      `#navLi${i}`,
+      {
+        y: 0,
+      },
+      {
+        ease: "easeInOut",
+      }
+    );
+  }
+};
