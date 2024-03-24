@@ -1,38 +1,107 @@
 "use client";
 import { motion } from "framer-motion";
+import { navLinkPull } from "../animation/animation";
+import { usePathname, useRouter } from "next/navigation";
 
 const Navbar = () => {
+  const router = useRouter();
+  const pathname = usePathname();
 
-  const liClasses =
-    "bg-secondary flex justify-center items-end pb-2 w-32 border border-primary border-t-0 text-xl leading-[3rem] tracking-[0.1rem] font-['Snow'] text-day ";
+  const liClasses = `bg-secondary flex justify-center items-end pb-2 w-32 border border-primary border-t-0 text-xl leading-[3rem] tracking-[0.1rem] font-['Snow'] text-day `;
 
   const navlinks = [
-    { name: "Home", link: "/", id: "navLi1" },
-    { name: "About", link: "/about", id: "navLi2" },
-    { name: "Experience", link: "/experience", id: "navLi3" },
-    { name: "Skills", link: "/skills", id: "navLi4" },
-    { name: "Project", link: "/project", id: "navLi5" },
-    { name: "Contact", link: "/contact", id: "navLi6" },
+    {
+      name: "Home",
+      link: "/",
+      id: "navLi1",
+      hi: "h-[4rem]",
+      animatedheight: 4,
+      isCurrent: pathname === "/",
+    },
+    {
+      name: "About",
+      link: "/about",
+      id: "navLi2",
+      hi: "h-[6rem]",
+      animatedheight: 6,
+      isCurrent: pathname === "/about",
+    },
+    {
+      name: "Experience",
+      link: "/experience",
+      id: "navLi3",
+      hi: "h-[8rem]",
+      animatedheight: 8,
+      isCurrent: pathname === "/experience",
+    },
+    {
+      name: "Skills",
+      link: "/skills",
+      id: "navLi4",
+      hi: "h-[10rem]",
+      animatedheight: 10,
+      isCurrent: pathname === "/skills",
+    },
+    {
+      name: "Project",
+      link: "/project",
+      id: "navLi5",
+      hi: "h-[12rem]",
+      animatedheight: 12,
+      isCurrent: pathname === "/project",
+    },
+    {
+      name: "Contact",
+      link: "/contact",
+      id: "navLi6",
+      hi: "h-[14rem]",
+      animatedheight: 14,
+      isCurrent: pathname === "/contact",
+    },
   ];
 
+  const handleclick = async ({
+    id,
+    link,
+    animatedheight,
+  }: {
+    id: string;
+    animatedheight: number;
+    link: string;
+  }) => {
+    await navLinkPull({ id, animatedheight });
+    router.push(link);
+  };
   return (
     <div className=" absolute z-20 right-0 ">
       <nav className=" w-full">
-        <ul className=" w-full flex justify-end items-start  ">
-          {navlinks.map((navlink, i) => {
-            return (
-              <motion.li
-                key={i}
-                id={navlink.id}
-                className={` ${liClasses} h-[${2 * (i + 2)}rem] `}
-                initial={{
-                  y: -300,
-                }}
+        <ul className=" w-full h-80 flex justify-end items-start ">
+          {navlinks.map((navlink, i) => (
+            <motion.li
+              key={i}
+              id={navlink.id}
+              className={` ${liClasses} ${navlink.hi}  ${
+                navlink.isCurrent
+                  ? "pointer-events-none cursor-not-allowed text-primary"
+                  : ""
+              }`}
+              initial={{
+                y: -300,
+              }}
+            >
+              <a
+                onClick={() =>
+                  handleclick({
+                    id: navlink.id,
+                    link: navlink.link,
+                    animatedheight: navlink.animatedheight,
+                  })
+                }
               >
-                <a href={navlink.link}>{navlink.name}</a>
-              </motion.li>
-            );
-          })}
+                {navlink.name}
+              </a>
+            </motion.li>
+          ))}
         </ul>
       </nav>
     </div>

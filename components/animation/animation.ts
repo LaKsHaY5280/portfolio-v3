@@ -79,13 +79,38 @@ export const heroAnimation = async () => {
 };
 
 export const navAnimation = async () => {
-  for (let i = 1; i <= 6; i++) {
-    await animate(
+  for (let i = 6; i >= 1; i--) {
+    animate(
       `#navLi${i}`,
       {
         y: 0,
       },
       {
+        duration: 0.5,
+        delay: 0.1 * (6 - i),
+        ease: "easeInOut",
+      }
+    );
+  }
+};
+
+export const navLinkPull = async ({
+  id,
+  animatedheight,
+}: {
+  id: string;
+  animatedheight: number;
+}) => {
+  if (id) {
+    const hei = animatedheight * 40;
+    await animate(
+      `#${id}`,
+      {
+        height: hei,
+      },
+      {
+        duration: 0.5,
+        delay: 0.1,
         ease: "easeInOut",
       }
     );

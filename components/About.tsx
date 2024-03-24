@@ -1,9 +1,20 @@
-import React from "react";
+import Navbar from "./elements/Navbar";
 
 const About = () => {
   return (
-    <div id="about" className=" absolute z-30">
-      assaddsad
+    <div id="about">
+      <Navbar />
+      <div>{/* image */}</div>
+
+      <div className=" bg-day h-screen">
+        {/* myself:-
+
+            d
+            ds
+            sds
+
+         */}
+      </div>
     </div>
   );
 };
