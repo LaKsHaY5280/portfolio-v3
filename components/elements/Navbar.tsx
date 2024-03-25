@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { navLinkPull } from "../animation/animation";
+import { doorCloseAnimation, navLinkPull } from "../animation/animation";
 import { usePathname, useRouter } from "next/navigation";
 
 const Navbar = () => {
@@ -70,7 +70,11 @@ const Navbar = () => {
     link: string;
   }) => {
     await navLinkPull({ id, animatedheight });
-    router.push(link);
+    await doorCloseAnimation();
+    setTimeout(() => {
+      router.push(link);
+    }, 1000);
+    // router.push(link);
   };
   return (
     <div className=" absolute z-20 right-0 ">

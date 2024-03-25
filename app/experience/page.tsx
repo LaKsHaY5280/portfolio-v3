@@ -1,9 +1,9 @@
 "use client";
-import { heroAnimation, navAnimation } from "@/components/animation/animation";
+import { navAnimation } from "@/components/animation/animation";
 import { useAnimate, useInView } from "framer-motion";
 import { useEffect } from "react";
-import About from "@/components/About";
 import Transition from "@/components/elements/Transition";
+import Experience from "@/components/Experience";
 
 const page = () => {
   const [scope] = useAnimate();
@@ -22,7 +22,7 @@ const page = () => {
   return (
     <div ref={scope}>
       <Transition>
-        <About />
+        <Experience />
       </Transition>
     </div>
   );

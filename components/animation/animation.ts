@@ -116,3 +116,48 @@ export const navLinkPull = async ({
     );
   }
 };
+
+export const doorCloseAnimation = async () => {
+  animate(
+    "#leftdoor",
+    {
+      scaleX: [0, 1],
+    },
+    {
+      duration: 1.5,
+      ease: [0.22, 1, 0.36, 1],
+    }
+  );
+  animate(
+    "#rightdoor",
+    {
+      scaleX: [0, 1],
+    },
+    {
+      duration: 1.5,
+      ease: [0.22, 1, 0.36, 1],
+    }
+  );
+};
+export const doorOpenAnimation = async () => {
+  animate(
+    "#leftdoor",
+    {
+      scaleX: [1, 0],
+    },
+    {
+      duration: 1.5,
+      ease: [0.22, 1, 0.36, 1],
+    }
+  );
+  animate(
+    "#rightdoor",
+    {
+      scaleX: [1, 0],
+    },
+    {
+      duration: 1.5,
+      ease: [0.22, 1, 0.36, 1],
+    }
+  );
+};
