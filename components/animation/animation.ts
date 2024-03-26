@@ -161,3 +161,4 @@ export const doorOpenAnimation = async () => {
     }
   );
 };
+
