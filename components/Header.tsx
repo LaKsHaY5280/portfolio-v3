@@ -4,6 +4,7 @@ import Msg from "@/assets/Msg";
 import SiteLoader from "@/components/elements/SiteLoader";
 import Arrow from "@/assets/Arrow";
 import Navbar from "./elements/Navbar";
+import { MoveUpRight } from "lucide-react";
 
 const Header = () => {
   return (
@@ -60,10 +61,17 @@ const Header = () => {
           .
         </p>
         <div className=" leading-[3.75rem] tracking-[0.2rem] font-['Snow'] text-2xl flex justify-start items-center gap-1">
-          Currently an employee at{" "}
-          <span className=" -rotate-45 text-4xl">
-            <Arrow />
-          </span>{" "}
+          Currently an employee at
+          <span>
+            <a href="https://launglaachi.co/" target="blank">
+              <MoveUpRight
+                size={40}
+                color="#846c5b"
+                strokeWidth={4}
+                absoluteStrokeWidth
+              />
+            </a>
+          </span>
           LaungLaachi.
         </div>
       </motion.div>

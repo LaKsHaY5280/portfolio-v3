@@ -13,12 +13,12 @@ const About = () => {
         </div>
 
         <div className=" text-day w-7/12 font-['Snow'] mt-28 ">
-          <h2 className="text-5xl leading-[3.5rem] tracking-[0.2rem] font-bold text-center ">
+          <h2 className=" pgHeading font-bold mx-10">
             Welcome to my
             <span className=" text-primary font-['Santika']"> ꙳ little ꙳ </span>
             corner of the internet.
           </h2>
-          <div className=" text-3xl leading-[2rem] tracking-[0.13rem] text-center">
+          <div className=" text-xl leading-[2.27rem] tracking-[0.15rem] ">
             <p className="mt-5 mx-10 ">
               I'm a <span className=" text-primary"> full-stack </span>developer
               with a passion for creating beautiful and functional websites. I

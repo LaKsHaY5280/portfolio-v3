@@ -79,12 +79,12 @@ const Navbar = () => {
   return (
     <div className=" absolute z-20 right-0 ">
       <nav className=" w-full">
-        <ul className=" w-full h-80 flex justify-end items-start ">
+        <ul className=" w-full h-fit flex justify-end items-start ">
           {navlinks.map((navlink, i) => (
             <motion.li
               key={i}
               id={navlink.id}
-              className={` ${liClasses} ${navlink.hi}  ${
+              className={` ${liClasses} ${navlink.hi} ${
                 navlink.isCurrent
                   ? "pointer-events-none cursor-not-allowed text-primary"
                   : ""
@@ -94,6 +94,7 @@ const Navbar = () => {
               }}
             >
               <a
+                className="cursor-pointer w-full h-full flex justify-center items-end"
                 onClick={() =>
                   handleclick({
                     id: navlink.id,

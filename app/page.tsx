@@ -1,6 +1,7 @@
 "use client";
 import Header from "@/components/Header";
 import { heroAnimation, navAnimation } from "@/components/animation/animation";
+import Transition from "@/components/elements/Transition";
 import { useAnimate, useInView } from "framer-motion";
 import { useEffect } from "react";
 
@@ -21,7 +22,9 @@ export default function Home() {
 
   return (
     <div ref={scope}>
-      <Header />
+      <Transition>
+        <Header />
+      </Transition>
     </div>
   );
 }
