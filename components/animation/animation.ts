@@ -1,4 +1,4 @@
-import { animate } from "framer-motion";
+import { animate, stagger } from "framer-motion";
 
 export const heroAnimation = async () => {
   await animate("#logoBox", {
@@ -102,7 +102,7 @@ export const navLinkPull = async ({
   animatedheight: number;
 }) => {
   if (id) {
-    const hei = animatedheight * 40;
+    const hei = animatedheight * 30;
     await animate(
       `#${id}`,
       {
@@ -162,3 +162,136 @@ export const doorOpenAnimation = async () => {
   );
 };
 
+export const skillsAnimation = async () => {
+  animate(
+    "#frontEndSkillsImg",
+    {
+      opacity: 1,
+      scaleX: 1,
+      scaleY: 1,
+    },
+    {
+      delay: stagger(0.1),
+    }
+  );
+  animate(
+    "#frontEndSkillsImg",
+    {
+      x: 0,
+    },
+    {
+      duration: 1,
+      delay: stagger(0.1),
+    }
+  );
+  animate(
+    "#frontEndSkillsName",
+    {
+      x: 0,
+      opacity: [0, 0, 1],
+    },
+    {
+      duration: 1,
+      delay: stagger(0.1),
+    }
+  );
+
+  animate(
+    "#backEndSkillsImg",
+    {
+      opacity: 1,
+      scaleX: 1,
+      scaleY: 1,
+    },
+    {
+      delay: stagger(0.1),
+    }
+  );
+  animate(
+    "#backEndSkillsImg",
+    {
+      x: 0,
+    },
+    {
+      duration: 1,
+      delay: stagger(0.1),
+    }
+  );
+  animate(
+    "#backEndSkillsName",
+    {
+      x: 0,
+      opacity: [0, 0, 1],
+    },
+    {
+      duration: 1,
+      delay: stagger(0.1),
+    }
+  );
+
+  animate(
+    "#databasesSkillsImg",
+    {
+      opacity: 1,
+      scaleX: 1,
+      scaleY: 1,
+    },
+    {
+      delay: stagger(0.1),
+    }
+  );
+  animate(
+    "#databasesSkillsImg",
+    {
+      x: 0,
+    },
+    {
+      duration: 1,
+      delay: stagger(0.1),
+    }
+  );
+  animate(
+    "#databasesSkillsName",
+    {
+      x: 0,
+      opacity: [0, 0, 1],
+    },
+    {
+      duration: 1,
+      delay: stagger(0.1),
+    }
+  );
+
+  animate(
+    "#othersSkillsImg",
+    {
+      opacity: 1,
+      scaleX: 1,
+      scaleY: 1,
+    },
+    {
+      delay: stagger(0.1),
+    }
+  );
+  animate(
+    "#othersSkillsImg",
+    {
+      x: 0,
+    },
+    {
+      duration: 1,
+      delay: stagger(0.1),
+    }
+  );
+  animate(
+    "#othersSkillsName",
+    {
+      x: 0,
+      opacity: [0, 0, 1],
+    },
+    {
+      duration: 1,
+      delay: stagger(0.1),
+    }
+  );
+};
