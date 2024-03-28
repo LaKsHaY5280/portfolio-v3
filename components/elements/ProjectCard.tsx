@@ -1,6 +1,5 @@
 "use client";
 
-import { htmllogo, ssbglg } from "@/assets/Index";
 import { InfiniteMovingCards } from "../ui/infinite-moving-cards";
 import { AnimatedTooltip } from "../ui/animated-tooltip";
 import { ChevronRight, Github, SquareArrowOutUpRight } from "lucide-react";

@@ -295,3 +295,38 @@ export const skillsAnimation = async () => {
     }
   );
 };
+
+export const socialAnimation = async () => {
+  animate(
+    "#socialImg",
+    {
+      opacity: 1,
+      scaleX: 1,
+      scaleY: 1,
+    },
+    {
+      delay: stagger(0.1),
+    }
+  );
+  animate(
+    "#socialImg",
+    {
+      x: 0,
+    },
+    {
+      duration: 1,
+      delay: stagger(0.1),
+    }
+  );
+  animate(
+    "#socialName",
+    {
+      x: 0,
+      opacity: [0, 0, 1],
+    },
+    {
+      duration: 1,
+      delay: stagger(0.1),
+    }
+  );
+};
