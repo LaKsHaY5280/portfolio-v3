@@ -77,7 +77,7 @@ const Navbar = () => {
     // router.push(link);
   };
   return (
-    <div className=" absolute z-20 right-0 ">
+    <div className=" absolute z-50 right-0 ">
       <nav className=" w-full">
         <ul className=" w-full h-fit flex justify-end items-start ">
           {navlinks.map((navlink, i) => (

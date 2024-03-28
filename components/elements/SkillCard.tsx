@@ -72,7 +72,7 @@ export function SkillCard({ skill: { name, skills } }: SkillCardProps) {
                   >
                     <motion.div>
                       {s.name}
-                      <Separator />
+                      <Separator className=" bg-day" />
                     </motion.div>
                   </motion.div>
                 </li>
