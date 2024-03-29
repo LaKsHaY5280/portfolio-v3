@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import ExpTable from "./elements/ExpTable";
 import Navbar from "./elements/Navbar";
 import DotCursor from "./mousePointer/DotCursor";
+import { exp } from "@/constants";
 
 const Experience = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -43,10 +44,14 @@ const Experience = () => {
           onMouseLeave={textLeave}
           className=" pgHeading text-day my-7 px-10 "
         >
-          Where I've worked
+          {exp.heading}
         </h1>
         <div className=" w-full ">
-          <ExpTable textEnter={textEnter} textLeave={textLeave} />
+          <ExpTable
+            card={exp.card}
+            textEnter={textEnter}
+            textLeave={textLeave}
+          />
         </div>
       </div>
       <DotCursor variants={variants} cursorVariants={cursorVariant} />
@@ -55,3 +60,4 @@ const Experience = () => {
 };
 
 export default Experience;
+

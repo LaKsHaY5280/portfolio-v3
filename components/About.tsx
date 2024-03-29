@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Navbar from "./elements/Navbar";
 import { ssbg } from "@/assets/Index";
+import { about } from "@/constants";
+
+
 
 const About = () => {
   return (
@@ -8,36 +11,33 @@ const About = () => {
       <Navbar />
       <div className=" relative h-screen flex justify-end items-center">
         <div className=" absolute -z-10">
-          {/* image */}
           <Image src={ssbg} alt="ssbg" />
         </div>
-
         <div className=" text-day w-7/12 font-['Snow'] mt-28 ">
           <h2 className=" pgHeading font-bold mx-10">
-            Welcome to my
-            <span className=" text-primary font-['Santika']"> ꙳ little ꙳ </span>
-            corner of the internet.
+            {about.headingp1}
+            <span className=" text-primary font-['Santika']">
+              {" "}
+              {about.headingp2}{" "}
+            </span>
+            {about.headingp3}
           </h2>
           <div className=" text-xl leading-[2.27rem] tracking-[0.15rem] ">
             <p className="mt-5 mx-10 ">
-              I'm a <span className=" text-primary"> full-stack </span>developer
-              with a passion for creating beautiful and functional websites. I
-              have made many projects where some of them are
-              <span className=" text-primary"> personal projects </span>
-              while some are industry grade well polished
-              <span className=" text-primary"> SaaS </span> and I am always
-              looking for new challenges.
+              {about.para1p1}
+              <span className=" text-primary">{about.para1h1}</span>
+              {about.para1p2}
+              <span className=" text-primary">{about.para1h2}</span>
+              {about.para1p3}
+              <span className=" text-primary">{about.para1h3}</span>
+              {about.para1p4}
             </p>
             <p className="mt-5 mx-10 ">
-              At the end of <span className=" font-['Santika']">10</span>th
-              grade I started learning web development and I have been hooked
-              ever since. While I had no idea at the time, I now know that being
-              a developer means thinking outside the frame.
+              {about.parap2p1}
+              <span className=" font-['Santika']">{about.parap2p2}</span>
+              {about.para2p3}
             </p>
-            <p className="mt-5 mx-10 ">
-              Ready for a digital adventure? Reach out with your questions or
-              requirements, and let's bring your vision to life.
-            </p>
+            <p className="mt-5 mx-10 ">{about.para3}</p>
           </div>
         </div>
       </div>
