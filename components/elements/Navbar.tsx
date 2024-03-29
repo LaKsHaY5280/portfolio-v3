@@ -1,65 +1,106 @@
-"use client";
-import { motion } from "framer-motion";
-import { doorCloseAnimation, navLinkPull } from "../animation/animation";
-import { usePathname, useRouter } from "next/navigation";
 import { navlinks } from "@/constants";
+import { useState } from "react";
+import NavDesktop from "./NavDesktop";
+import NavMobile from "./NavMobile";
+import { MotionConfig, motion } from "framer-motion";
 
 const Navbar = () => {
-  const router = useRouter();
-  const pathname = usePathname();
-
-  const handleclick = async ({
-    id,
-    link,
-    animatedheight,
-  }: {
-    id: string;
-    animatedheight: number;
-    link: string;
-  }) => {
-    await navLinkPull({ id, animatedheight });
-    await doorCloseAnimation();
-    setTimeout(() => {
-      router.push(link);
-    }, 1000);
+  const [open, setOpen] = useState(false);
+  const toggleMenu = () => {
+    setOpen((prevOpen) => !prevOpen);
   };
 
   return (
     <div className=" absolute z-50 right-0 ">
-      <nav className=" w-full">
-        <ul className=" w-full h-fit flex justify-end items-start ">
+      <nav className=" z-30 relative w-full">
+        <ul className=" max-xl:hidden w-full h-fit flex justify-end items-start ">
           {navlinks.map((navlink, i) => (
-            <motion.li
-              key={i}
-              id={navlink.id}
-              className={` bg-secondary flex justify-center items-end pb-2 w-32 border border-primary border-t-0 text-xl leading-[3rem] tracking-[0.1rem] font-['Snow'] text-day ${
-                navlink.hi
-              } ${
-                pathname === navlink.link &&
-                "pointer-events-none cursor-not-allowed text-primary"
-              }`}
-              initial={{
-                y: -300,
-              }}
-            >
-              <a
-                className="cursor-pointer w-full h-full flex justify-center items-end"
-                onClick={() =>
-                  handleclick({
-                    id: navlink.id,
-                    link: navlink.link,
-                    animatedheight: navlink.animatedheight,
-                  })
-                }
-              >
-                {navlink.name}
-              </a>
-            </motion.li>
+            <NavDesktop key={i} navlink={navlink} />
           ))}
         </ul>
+        <div
+          className=" z-30 absolute top-0 right-0 xl:hidden m-10 cursor-pointer text-md text-primary"
+          onClick={toggleMenu}
+        >
+          <AnimatedHamburger />
+        </div>
       </nav>
+      <NavMobile open={open} navlinks={navlinks} />
     </div>
   );
 };
 
 export default Navbar;
+
+const AnimatedHamburger = () => {
+  const [active, setActive] = useState(false);
+
+  return (
+    <MotionConfig
+      transition={{
+        duration: 0.5,
+        ease: "easeInOut",
+      }}
+    >
+      <motion.button
+        initial={false}
+        animate={active ? "open" : "closed"}
+        onClick={() => setActive((pv) => !pv)}
+        className="relative h-20 w-20 rounded-full bg-primary transition-colors hover:bg-secondary/50"
+      >
+        <motion.span
+          variants={VARIANTS.top}
+          className="absolute h-1 w-10 bg-day"
+          style={{ y: "-50%", left: "50%", x: "-50%", top: "35%" }}
+        />
+        <motion.span
+          variants={VARIANTS.middle}
+          className="absolute h-1 w-10 bg-day"
+          style={{ left: "50%", x: "-50%", top: "50%", y: "-50%" }}
+        />
+        <motion.span
+          variants={VARIANTS.bottom}
+          className="absolute h-1 w-5 bg-day"
+          style={{
+            x: "-50%",
+            y: "50%",
+            bottom: "35%",
+            left: "calc(50% + 10px)",
+          }}
+        />
+      </motion.button>
+    </MotionConfig>
+  );
+};
+const VARIANTS = {
+  top: {
+    open: {
+      rotate: ["0deg", "0deg", "45deg"],
+      top: ["35%", "50%", "50%"],
+    },
+    closed: {
+      rotate: ["45deg", "0deg", "0deg"],
+      top: ["50%", "50%", "35%"],
+    },
+  },
+  middle: {
+    open: {
+      rotate: ["0deg", "0deg", "-45deg"],
+    },
+    closed: {
+      rotate: ["-45deg", "0deg", "0deg"],
+    },
+  },
+  bottom: {
+    open: {
+      rotate: ["0deg", "0deg", "45deg"],
+      bottom: ["35%", "50%", "50%"],
+      left: "50%",
+    },
+    closed: {
+      rotate: ["45deg", "0deg", "0deg"],
+      bottom: ["50%", "50%", "35%"],
+      left: "calc(50% + 10px)",
+    },
+  },
+};

@@ -425,38 +425,40 @@ export const projects = {
   ],
 };
 
+export const socials = [
+  {
+    name: "@Akuma._.Lakshay",
+    link: "",
+    icon: insta,
+  },
+  {
+    name: "@LaKsHaY5280",
+    link: "",
+    icon: github,
+  },
+  {
+    name: "@Akuma_Laku",
+    link: "",
+    icon: xlogo,
+  },
+  {
+    name: "Lakshay Goyal",
+    link: "",
+    icon: linkedin,
+  },
+  {
+    name: "lakugoyal1@gmail.com",
+    link: "",
+    icon: mail,
+  },
+];
+
 export const contact = {
   heading: "Wanna have a cup of coffee☕...",
   subHeading: "Shoot me :-",
   left: "An Email Here",
   or: "OR",
   right: "A Dm at",
-
-  socials: [
-    {
-      name: "@Akuma._.Lakshay",
-      link: "",
-      icon: insta,
-    },
-    {
-      name: "@LaKsHaY5280",
-      link: "",
-      icon: github,
-    },
-    {
-      name: "@Akuma_Laku",
-      link: "",
-      icon: xlogo,
-    },
-    {
-      name: "Lakshay Goyal",
-      link: "",
-      icon: linkedin,
-    },
-    {
-      name: "lakugoyal1@gmail.com",
-      link: "",
-      icon: mail,
-    },
-  ],
+  socials: socials,
 };
+

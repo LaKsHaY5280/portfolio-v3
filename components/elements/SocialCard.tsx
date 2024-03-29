@@ -47,12 +47,7 @@ export function SocialCard({ heading, socials }: SocialCardProps) {
                       id={socialImgId}
                       initial={{ x: 100, opacity: 0, scaleX: 0, scaleY: 0 }}
                     >
-                      <Image
-                        src={s.icon}
-                        alt={s.name}
-                        width={40}
-                        layout="intrinsic"
-                      />
+                      <Image src={s.icon} alt={s.name} width={40} />
                     </motion.div>
                     <motion.div
                       id={socialNameId}
