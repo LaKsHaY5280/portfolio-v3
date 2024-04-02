@@ -93,6 +93,18 @@
 }
 
 @layer components {
+
+  .homeHeading{
+    @apply text-5xl leading-[3.5rem] tracking-[0rem] font-['snow'] max-xl:text-3xl max-lg:text-2xl;
+  }
+
+  .homeBody{
+    @apply text-3xl leading-[3.5rem] tracking-[0.1rem] font-['snow'] max-xl:text-xl max-xl:leading-[2.5rem] max-xl:tracking-[0.1rem] max-lg:text-lg max-lg:leading-[2.5rem] max-lg:tracking-[0.1rem];
+  }
+  
+  .homeCaption{
+    @apply text-xl leading-[3.5rem] tracking-[0.1rem] font-['snow'] max-xl:text-sm max-xl:leading-[2.5rem] max-xl:tracking-[0.1rem] max-lg:text-sm max-lg:leading-[2.5rem] max-lg:tracking-[0.1rem];
+  }
   
   .pgHeading{
     @apply text-4xl leading-[3.5rem] tracking-[0.2rem] font-['snow'];

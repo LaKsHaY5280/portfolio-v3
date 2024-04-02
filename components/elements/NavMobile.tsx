@@ -151,7 +151,7 @@ const MobileNavLink = ({
       onClick={handleclick}
     >
       {data.name}
-      <Separator />
+      <Separator className=" bg-primary" />
     </motion.div>
   );
 };

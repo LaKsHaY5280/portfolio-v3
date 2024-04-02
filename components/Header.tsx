@@ -10,71 +10,77 @@ const Header = () => {
   return (
     <div id="home">
       <Navbar />
-      <SiteLoader logo={header.logo} />
-      <motion.div
-        id="textBox"
-        className={` absolute text-day z-20 top-[30%] left-[40%] flex flex-col justify-betweeb items-start gap-10 overflow-hidden pr-28 h-fit pt-10 w-fit`}
-        initial={{
-          x: -100,
-          y: 0,
-          opacity: 0,
-        }}
+      <div
+        id="bgDiv"
+        className=" w-full h-full flex justify-center items-start bg-night "
       >
-        <div className=" h-full w-full flex justify-start items-center gap-3 text-4xl">
-          <div className=" flex justify-center items-center">
-            <Msg color={"#846c5b"} />
+        <SiteLoader logo={header.logo} />
+        <motion.div
+          id="textBox"
+          className={` absolute text-day z-20 top-[30%] left-[40%] flex flex-col justify-betweeb items-start gap-10 pr-28 h-fit pt-10 w-fit max-xl:top-[20%] max-xl:left-[40%] max-xl:right-[2%] max-lg:top-10 max-lg:left-10 `}
+          initial={{
+            x: -100,
+            y: 0,
+            opacity: 0,
+          }}
+        >
+          <div className=" homeHeading h-full w-full flex justify-start items-center gap-3">
+            <div className=" flex justify-center items-center">
+              <Msg color={"#846c5b"} />
+            </div>
+            <p className=" w-full h-full flex max-lg:flex-col justify-start lg:items-center gap-4 font-['Snow'] mt-2">
+              <span>Hi, I'm</span>
+              <span className=" font-['Santika'] text-primary underline decoration-secondary underline-offset-8">
+                {header.name}
+              </span>
+            </p>
           </div>
-          <p className=" w-full h-full flex justify-start items-center gap-4 text-6xl tracking-wider font-['Snow'] mt-2">
-            Hi, I'm
-            <span className=" font-['Santika'] text-primary underline decoration-secondary underline-offset-8">
-              {header.name}
+          <p className=" homeBody ">
+            A {header.designation} who thrives in
+            <span className=" px-1 mx-1 relative whitespace-nowrap">
+              {header.hightlight1}
+              <motion.span
+                id="highlight1"
+                className=" absolute top-2 bottom-1 left-0 right-0 z-[-1]"
+                initial={{
+                  right: 0,
+                  width: 0,
+                  height: "100%",
+                }}
+              />
+            </span>
+            and captivity in
+            <span className=" px-1 mx-1 relative  whitespace-nowrap">
+              {header.hightlight2}
+              <motion.span
+                id="highlight2"
+                className=" absolute top-1 bottom-1 left-0 right-0 z-[-1]"
+                initial={{
+                  right: 0,
+                  width: 0,
+                  height: "100%",
+                }}
+              />
+            </span>
+            .
+          </p>
+          <p className=" homeCaption flex max-lg:flex-col justify-start lg:items-center gap-1">
+            <span>Currently an employee at</span>
+            <span className=" flex justify-start items-center gap-2">
+              <a href={header.currentJob.link} target="blank">
+                <MoveUpRight
+                  className=" xl:w-10 xl:h-10"
+                  // size={}
+                  color="#846c5b"
+                  strokeWidth={2}
+                  absoluteStrokeWidth
+                />
+              </a>
+              <span>{header.currentJob.name}.</span>
             </span>
           </p>
-        </div>
-        <p className=" text-4xl leading-[3.5rem] tracking-[0.3rem] font-['Snow']">
-          A {header.designation} who thrives in
-          <span className=" px-1 mx-1 relative whitespace-nowrap">
-            {header.hightlight1}
-            <motion.span
-              id="highlight1"
-              className=" absolute top-2 bottom-1 left-0 right-0 z-[-1]"
-              initial={{
-                right: 0,
-                width: 0,
-                height: "100%",
-              }}
-            />
-          </span>
-          and captivity in
-          <span className=" px-1 mx-1 relative  whitespace-nowrap">
-            {header.hightlight2}
-            <motion.span
-              id="highlight2"
-              className=" absolute top-1 bottom-1 left-0 right-0 z-[-1]"
-              initial={{
-                right: 0,
-                width: 0,
-                height: "100%",
-              }}
-            />
-          </span>
-          .
-        </p>
-        <div className=" leading-[3.75rem] tracking-[0.2rem] font-['Snow'] text-2xl flex justify-start items-center gap-1">
-          Currently an employee at
-          <span>
-            <a href={header.currentJob.link} target="blank">
-              <MoveUpRight
-                size={40}
-                color="#846c5b"
-                strokeWidth={4}
-                absoluteStrokeWidth
-              />
-            </a>
-          </span>
-          {header.currentJob.name}.
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </div>
   );
 };

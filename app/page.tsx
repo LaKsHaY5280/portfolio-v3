@@ -7,13 +7,13 @@ import { useEffect } from "react";
 
 export default function Home() {
   const [scope] = useAnimate();
-  const isInView = useInView(scope, { once: true, amount: 0.8 });
+  const isInView = useInView(scope, { once: true, amount: 0.1 });
 
   useEffect(() => {
-    if (isInView) {
-      animation();
-    }
-  }, [isInView]);
+    // if (isInView) {
+    animation();
+    // }
+  }, []);
 
   const animation = async () => {
     await heroAnimation();
