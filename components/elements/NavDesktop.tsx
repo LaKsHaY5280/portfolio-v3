@@ -8,7 +8,6 @@ interface NavDesktopprops {
     id: string;
     name: string;
     link: string;
-    hi: string;
     animatedheight: number;
   };
 }
@@ -17,7 +16,7 @@ const NavDesktop = (navlink: NavDesktopprops) => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const { id, name, link, hi, animatedheight } = navlink.navlink;
+  const { id, name, link, animatedheight } = navlink.navlink;
 
   const handleclick = async ({
     id,
@@ -38,7 +37,10 @@ const NavDesktop = (navlink: NavDesktopprops) => {
   return (
     <motion.li
       id={id}
-      className={` bg-secondary flex justify-center items-end pb-2 w-32 border border-primary border-t-0 text-xl leading-[3rem] tracking-[0.1rem] font-['Snow'] text-day ${hi} ${
+      style={{
+        height: `${animatedheight}rem`,
+      }}
+      className={` bg-secondary flex justify-center items-end pb-2 w-32 border border-primary border-t-0 text-xl leading-[3rem] tracking-[0.1rem] font-['Snow'] text-day  ${
         pathname === link &&
         "pointer-events-none cursor-not-allowed text-primary"
       }`}
