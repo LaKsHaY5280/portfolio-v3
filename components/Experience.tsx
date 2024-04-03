@@ -38,21 +38,17 @@ const Experience = () => {
   return (
     <div>
       <Navbar />
-      <div className="bg-night min-h-screen w-full flex flex-col justify-around items-start p-10">
+      <div className="bg-night min-h-screen w-full h-full flex flex-col justify-center items-start p-5 lg:p-10 ">
         <h1
           onMouseEnter={textEnter}
           onMouseLeave={textLeave}
-          className=" pgHeading text-day my-7 px-10 "
+          className=" homeHeading text-day my-7 xl:pt-10 w-full flex justify-center items-center "
         >
-          {exp.heading}
+          <span>{exp.heading}</span>
         </h1>
-        <div className=" w-full ">
-          <ExpTable
-            card={exp.card}
-            textEnter={textEnter}
-            textLeave={textLeave}
-          />
-        </div>
+        {/* <div className=" w-full h-full "> */}
+        <ExpTable card={exp.card} textEnter={textEnter} textLeave={textLeave} />
+        {/* </div> */}
       </div>
       <DotCursor variants={variants} cursorVariants={cursorVariant} />
     </div>

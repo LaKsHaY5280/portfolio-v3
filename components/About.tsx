@@ -13,7 +13,7 @@ const About = () => {
         <div className=" absolute -z-10">
           {/* <Image src={ssbg} alt="ssbg" /> */}
         </div>
-        <div className=" homeHeading text-day xl:w-8/12 xl:h-full pb-10 xl:flex flex-col justify-end items-center ">
+        <div className=" homeHeading text-day xl:w-8/12 xl:h-full pb-10 xl:flex flex-col justify-end items-center max-md:pt-32 ">
           <h2 className=" font-bold mx-10">
             <span>{about.headingp1}</span>
             <span className=" text-primary font-['Santika']">
