@@ -114,4 +114,8 @@
     @apply text-xl leading-[3.5rem] tracking-[0.1rem] font-['snow'] max-xl:text-xl max-xl:leading-[2.5rem] max-xl:tracking-[0.1rem] max-lg:text-lg max-lg:leading-[2.5rem] max-lg:tracking-[0.1rem];
   }
 
+  .projIndx{
+    @apply text-xl leading-[3.5rem] tracking-[0.1rem] font-['snow'] max-xl:text-lg max-xl:leading-[2.5rem] max-xl:tracking-[0.1rem] max-lg:text-sm max-lg:leading-[2.5rem] max-lg:tracking-[0.1rem];
+  }
+
 }

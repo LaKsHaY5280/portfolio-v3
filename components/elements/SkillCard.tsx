@@ -48,8 +48,8 @@ export function SkillCard({ skill: { name, skills } }: SkillCardProps) {
         onMouseLeave={() => setHovered(false)}
         className=" h-full  flex flex-col lg:flex-row overflow-hidden items-center justify-center bg-black gap-4 mx-auto px-8 relative rounded-lg"
       >
-        <div className=" w-full h-full flex flex-col justify-start items-center md:text-2xl font-medium text-day relative z-20 max-w-2xl mx-auto py-10 text-lg leading-[3.5rem] tracking-[0.2rem] font-['Snow'] ">
-          <p className=" mb-5">{name}</p>
+        <div className=" w-full h-full flex flex-col justify-start items-center md:text-2xl font-medium text-day relative z-20 max-w-2xl mx-auto py-10 font-['Snow'] ">
+          <p className=" aboutBody mb-5">{name}</p>
           <ScrollArea className="h-full w-full flex flex-col justify-around items-center pt-3 ">
             <ul className=" w-full h-full flex flex-col justify-around items-start gap-4 text-sm leading-[2rem] tracking-[0.2rem]">
               {skills.map((s, i) => (
@@ -68,7 +68,7 @@ export function SkillCard({ skill: { name, skills } }: SkillCardProps) {
                     initial={{ x: -100, opacity: 0 }}
                     className=" w-full flex flex-col justify-center items-center"
                   >
-                    <motion.div>
+                    <motion.div className=" aboutBody">
                       {s.name}
                       <Separator className=" bg-day" />
                     </motion.div>
