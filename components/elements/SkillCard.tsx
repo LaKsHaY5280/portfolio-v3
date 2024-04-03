@@ -39,11 +39,14 @@ export function SkillCard({ skill: { name, skills } }: SkillCardProps) {
   }
 
   return (
-    <BackgroundGradient>
+    <BackgroundGradient
+      className=" h-full"
+      containerClassName=" h-full md:w-[40%] lg:w-[25%] xl:w-[20%]  "
+    >
       <div
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className=" h-[30rem] flex flex-col lg:flex-row overflow-hidden items-center justify-center bg-black w-full gap-4 mx-auto px-8 relative rounded-lg"
+        className=" h-full  flex flex-col lg:flex-row overflow-hidden items-center justify-center bg-black gap-4 mx-auto px-8 relative rounded-lg"
       >
         <div className=" w-full h-full flex flex-col justify-start items-center md:text-2xl font-medium text-day relative z-20 max-w-2xl mx-auto py-10 text-lg leading-[3.5rem] tracking-[0.2rem] font-['Snow'] ">
           <p className=" mb-5">{name}</p>

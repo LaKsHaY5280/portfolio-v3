@@ -13,10 +13,10 @@ const page = () => {
   const isInView = useInView(scope, { once: true, amount: 0.8 });
 
   useEffect(() => {
-    if (isInView) {
-      animation();
-    }
-  }, [isInView]);
+    // if (isInView) {
+    animation();
+    // }
+  }, []);
 
   const animation = async () => {
     navAnimation();

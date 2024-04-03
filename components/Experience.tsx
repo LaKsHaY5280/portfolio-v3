@@ -38,11 +38,11 @@ const Experience = () => {
   return (
     <div>
       <Navbar />
-      <div className="bg-night min-h-screen w-full h-full flex flex-col justify-center items-start p-5 lg:p-10 ">
+      <div className="bg-night min-h-screen w-full h-full flex flex-col justify-center items-center p-5 lg:p-10 ">
         <h1
           onMouseEnter={textEnter}
           onMouseLeave={textLeave}
-          className=" homeHeading text-day my-7 xl:pt-10 w-full flex justify-center items-center "
+          className=" homeHeading text-day my-7 xl:pt-10 w-9/12 flex justify-start items-center "
         >
           <span>{exp.heading}</span>
         </h1>
