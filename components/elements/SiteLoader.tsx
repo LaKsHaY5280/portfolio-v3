@@ -62,17 +62,21 @@ const SiteLoader = ({ logo }: SiteLoaderProps) => {
         <motion.div
           initial={{
             x: 0,
-            y: 0,
+            y: -300,
             opacity: 0,
             scaleY: 0,
             scaleX: 0,
           }}
           animate={{
             x: [0, 0, 0],
-            y: [0, 0, 100],
+            y: [-500, 100],
             opacity: 1,
             scaleY: [0, 1.2, 1],
             scaleX: [0, 1.2, 1],
+          }}
+          transition={{
+            delay: 0.5,
+            duration: 1.5,
           }}
           // id="logoBox"
           layout="size"

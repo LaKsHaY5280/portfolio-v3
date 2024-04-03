@@ -110,4 +110,8 @@
     @apply text-4xl leading-[3.5rem] tracking-[0.2rem] font-['snow'];
   }
 
+  .aboutBody{
+    @apply text-xl leading-[3.5rem] tracking-[0.1rem] font-['snow'] max-xl:text-xl max-xl:leading-[2.5rem] max-xl:tracking-[0.1rem] max-lg:text-lg max-lg:leading-[2.5rem] max-lg:tracking-[0.1rem];
+  }
+
 }
