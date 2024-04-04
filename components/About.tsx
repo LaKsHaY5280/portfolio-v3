@@ -1,9 +1,8 @@
 import Image from "next/image";
 import Navbar from "./elements/Navbar";
-import { ssbg } from "@/assets/Index";
+import { segrigator } from "@/assets/Index";
 import { about } from "@/constants";
-
-
+import Segrigator from "@/assets/segrigator";
 
 const About = () => {
   return (
@@ -13,15 +12,18 @@ const About = () => {
         <div className=" absolute -z-10">
           {/* <Image src={ssbg} alt="ssbg" /> */}
         </div>
-        <div className=" homeHeading text-day xl:w-8/12 xl:h-full pb-10 xl:flex flex-col justify-end items-center max-md:pt-32 ">
-          <h2 className=" font-bold mx-10">
-            <span>{about.headingp1}</span>
-            <span className=" text-primary font-['Santika']">
-              {" "}
-              {about.headingp2}{" "}
-            </span>
-            <span>{about.headingp3}</span>
-          </h2>
+        <div className=" homeHeading text-day xl:w-8/12 xl:h-full pb-10 xl:flex flex-col justify-center max-xl:justify-end items-center max-md:pt-32 xl:mt-32">
+          <div className=" flex flex-col justify-center items-center mt-24">
+            <h2 className=" font-bold mx-10">
+              <span>{about.headingp1}</span>
+              <span className=" text-primary font-['Santika']">
+                {" "}
+                {about.headingp2}{" "}
+              </span>
+              <span>{about.headingp3}</span>
+            </h2>
+            <Image src={segrigator} alt="segrigator" width={100} height={20} />
+          </div>
           <div className=" aboutBody ">
             <p className="mt-5 mx-10 ">
               {about.para1p1}

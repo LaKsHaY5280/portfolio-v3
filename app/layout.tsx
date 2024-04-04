@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Body from "./body";
+
 
 export const metadata: Metadata = {
   title: "Lakshay Goyal - Software Engineer",
@@ -13,9 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        {children}
-      </body>
+      {/* <body> */}
+        <Body children={children} />
+      {/* </body> */}
     </html>
   );
 }

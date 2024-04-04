@@ -119,166 +119,176 @@ export const exp = {
   },
 };
 
-export const skills = {
-  heading: "Technologies I've acquired",
+export const frontend = {
+  name: "Front - End",
   skills: [
     {
-      name: "Front - End",
-      skills: [
-        {
-          img: htmllogo,
-          name: "HTML",
-        },
-        {
-          img: htmllogo,
-          name: "CSS",
-        },
-        {
-          img: htmllogo,
-          name: "JavaScript",
-        },
-        {
-          img: htmllogo,
-          name: "TypeScript",
-        },
-        {
-          img: htmllogo,
-          name: "React.JS",
-        },
-        {
-          img: htmllogo,
-          name: "Next.JS",
-        },
-        {
-          img: htmllogo,
-          name: "Bootstrap",
-        },
-        {
-          img: htmllogo,
-          name: "TailwindCSS",
-        },
-        {
-          img: htmllogo,
-          name: "Framer Motion",
-        },
-        {
-          img: htmllogo,
-          name: "Three.JS",
-        },
-        {
-          img: htmllogo,
-          name: "GSAP",
-        },
-      ],
+      img: htmllogo,
+      name: "React.JS",
     },
     {
-      name: "Back - End",
-      skills: [
-        {
-          img: htmllogo,
-          name: "Node.js",
-        },
-        {
-          img: htmllogo,
-          name: "Express",
-        },
-        {
-          img: htmllogo,
-          name: "SQL",
-        },
-        {
-          img: htmllogo,
-          name: "PostgreSQL",
-        },
-        {
-          img: htmllogo,
-          name: "TypeScript",
-        },
-        {
-          img: htmllogo,
-          name: "JavaScript",
-        },
-      ],
+      img: htmllogo,
+      name: "Next.JS",
     },
     {
-      name: "Databases",
-      skills: [
-        {
-          img: htmllogo,
-          name: "MongoDB",
-        },
-        {
-          img: htmllogo,
-          name: "Appwrite",
-        },
-        {
-          img: htmllogo,
-          name: "Sanity",
-        },
-        {
-          img: htmllogo,
-          name: "Firebase",
-        },
-        {
-          img: htmllogo,
-          name: "SupaBase",
-        },
-      ],
+      img: htmllogo,
+      name: "Bootstrap",
     },
     {
-      name: "Others",
-      skills: [
-        {
-          img: htmllogo,
-          name: "C",
-        },
-        {
-          img: htmllogo,
-          name: "C++",
-        },
-        {
-          img: htmllogo,
-          name: "Python",
-        },
-        {
-          img: htmllogo,
-          name: "Java",
-        },
-        {
-          img: htmllogo,
-          name: "Docker",
-        },
-        {
-          img: htmllogo,
-          name: "Git",
-        },
-        {
-          img: htmllogo,
-          name: "GitHub",
-        },
-        {
-          img: htmllogo,
-          name: "Vs Code",
-        },
-        {
-          img: htmllogo,
-          name: "Stripe",
-        },
-        {
-          img: htmllogo,
-          name: "Vercel",
-        },
-        {
-          img: htmllogo,
-          name: "Netlify",
-        },
-        {
-          img: htmllogo,
-          name: "Figma",
-        },
-      ],
+      img: htmllogo,
+      name: "TailwindCSS",
+    },
+    {
+      img: htmllogo,
+      name: "Framer Motion",
+    },
+    {
+      img: htmllogo,
+      name: "Three.JS",
+    },
+    {
+      img: htmllogo,
+      name: "GSAP",
     },
   ],
+};
+
+export const backend = {
+  name: "Back - End",
+  skills: [
+    {
+      img: htmllogo,
+      name: "Node.js",
+    },
+    {
+      img: htmllogo,
+      name: "Express",
+    },
+    {
+      img: htmllogo,
+      name: "SQL",
+    },
+    {
+      img: htmllogo,
+      name: "PostgreSQL",
+    },
+    {
+      img: htmllogo,
+      name: "TypeScript",
+    },
+    {
+      img: htmllogo,
+      name: "JavaScript",
+    },
+  ],
+};
+
+export const db = {
+  name: "Databases",
+  skills: [
+    {
+      img: htmllogo,
+      name: "MongoDB",
+    },
+    {
+      img: htmllogo,
+      name: "Appwrite",
+    },
+    {
+      img: htmllogo,
+      name: "Sanity",
+    },
+    {
+      img: htmllogo,
+      name: "Firebase",
+    },
+    {
+      img: htmllogo,
+      name: "SupaBase",
+    },
+  ],
+};
+
+export const langs = {
+  name: "Languages",
+  skills: [
+    {
+      img: htmllogo,
+      name: "HTML",
+    },
+    {
+      img: htmllogo,
+      name: "CSS",
+    },
+    {
+      img: htmllogo,
+      name: "JavaScript",
+    },
+    {
+      img: htmllogo,
+      name: "TypeScript",
+    },
+    {
+      img: htmllogo,
+      name: "C",
+    },
+    {
+      img: htmllogo,
+      name: "C++",
+    },
+    {
+      img: htmllogo,
+      name: "Python",
+    },
+    {
+      img: htmllogo,
+      name: "Java",
+    },
+    {
+      img: htmllogo,
+      name: "Git",
+    },
+  ],
+};
+
+export const others = {
+  name: "Others",
+  skills: [
+    {
+      img: htmllogo,
+      name: "Docker",
+    },
+
+    {
+      img: htmllogo,
+      name: "GitHub",
+    },
+    {
+      img: htmllogo,
+      name: "Vs Code",
+    },
+    {
+      img: htmllogo,
+      name: "Stripe",
+    },
+    {
+      img: htmllogo,
+      name: "Vercel",
+    },
+    {
+      img: htmllogo,
+      name: "Netlify",
+    },
+    {
+      img: htmllogo,
+      name: "Figma",
+    },
+  ],
+};
+
+export const skills = {
+  heading: "Technologies I've acquired",
+  skills: [langs, frontend, backend, others],
 };
 
 export const projects = {

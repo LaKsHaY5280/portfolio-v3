@@ -10,6 +10,7 @@ import linkedin from "./linkedin.svg";
 import github from "./github.svg";
 import codepen from "./codepen.svg";
 import mail from "./mail.png";
+import segrigator from "./segrigator.png";
 
 export {
   logo,
@@ -24,4 +25,5 @@ export {
   github,
   codepen,
   mail,
+  segrigator,
 };

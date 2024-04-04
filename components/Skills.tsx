@@ -10,7 +10,7 @@ const Skills = () => {
         <h1 className=" homeHeading text-night my-7 lg:pt-16 w-9/12 flex justify-start items-center ">
           <span>{skills.heading}</span>
         </h1>
-        <div className=" h-full w-full flex flex-wrap justify-around items-center gap-10 ">
+        <div className=" h-full w-full flex flex-wrap justify-around items-start gap-10 ">
           {skills.skills.map((skill) => (
             <SkillCard skill={skill} />
           ))}

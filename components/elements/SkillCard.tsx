@@ -30,7 +30,7 @@ export function SkillCard({ skill: { name, skills } }: SkillCardProps) {
   } else if (name == "Back - End") {
     skillImgId = "backEndSkillsImg";
     skillNameId = "backEndSkillsName";
-  } else if (name == "Databases") {
+  } else if (name == "Languages") {
     skillImgId = "databasesSkillsImg";
     skillNameId = "databasesSkillsName";
   } else if (name == "Others") {
