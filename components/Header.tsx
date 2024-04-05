@@ -40,7 +40,7 @@ const Header = () => {
             <span className=" px-1 mx-1 relative whitespace-nowrap">
               {header.hightlight1}
               <motion.span
-                id="highlight1"
+                id="highlight"
                 className=" absolute top-2 bottom-1 left-0 right-0 z-[-1]"
                 initial={{
                   right: 0,
@@ -53,7 +53,7 @@ const Header = () => {
             <span className=" px-1 mx-1 relative  whitespace-nowrap">
               {header.hightlight2}
               <motion.span
-                id="highlight2"
+                id="highlight"
                 className=" absolute top-1 bottom-1 left-0 right-0 z-[-1]"
                 initial={{
                   right: 0,

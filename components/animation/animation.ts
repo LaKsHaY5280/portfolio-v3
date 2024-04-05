@@ -61,21 +61,20 @@ export const heroAnimation = async () => {
       delay: 0.5,
     }
   );
-  for (let i = 1; i <= 2; i++) {
-    await animate(
-      `#highlight${i}`,
-      {
-        backgroundColor: "#846c5b", //primary
-        right: "100%",
-        width: "100%",
-        height: "100%",
-      },
-      {
-        duration: 0.5,
-        ease: "easeInOut",
-      }
-    );
-  }
+  await animate(
+    "#highlight",
+    {
+      backgroundColor: "#846c5b", //primary
+      right: "100%",
+      width: "100%",
+      height: "100%",
+    },
+    {
+      delay: stagger(0.5),
+      duration: 0.5,
+      ease: "easeInOut",
+    }
+  );
 };
 
 export const navAnimation = async () => {
