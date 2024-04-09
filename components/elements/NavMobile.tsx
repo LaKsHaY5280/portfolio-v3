@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { socials } from "@/constants";
 import Image from "next/image";
 import { Separator } from "../ui/separator";
+import Link from "next/link";
 
 const NavMobile = ({
   open,
@@ -85,14 +86,14 @@ const NavMobile = ({
             <motion.div className=" w-full flex justify-around items-center">
               {socials.map((s, i) => (
                 <div key={i} className=" flex justify-around items-center p-1">
-                  <a
+                  <Link
                     href={s.link}
                     className=" w-full flex justify-center items-center gap-5"
                   >
                     <motion.div whileHover={{ scale: 1.1 }}>
                       <Image src={s.icon} alt={s.name} width={40} />
                     </motion.div>
-                  </a>
+                  </Link>
                 </div>
               ))}
             </motion.div>

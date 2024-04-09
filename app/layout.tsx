@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Body from "./body";
-
+import { client } from "@/lib/sanity";
 
 export const metadata: Metadata = {
   title: "Lakshay Goyal - Software Engineer",
@@ -13,11 +13,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
-      {/* <body> */}
-        <Body children={children} />
-      {/* </body> */}
+      <Body children={children} />
     </html>
   );
 }

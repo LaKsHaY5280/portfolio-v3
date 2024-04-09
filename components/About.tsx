@@ -1,10 +1,29 @@
 import Image from "next/image";
 import Navbar from "./elements/Navbar";
 import { segrigator } from "@/assets/Index";
-import { about } from "@/constants";
-import Segrigator from "@/assets/segrigator";
+import { fetchAboutdata } from "@/constants";
+import { about } from "@/lib/types";
+import { useEffect, useState } from "react";
 
 const About = () => {
+  const [aboutdata, setAboutdata] = useState<about | undefined>();
+
+  const loadData = async () => {
+    const data = await fetchAboutdata();
+    setAboutdata(data);
+  };
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  // Check if aboutdata is available before rendering
+  if (!aboutdata) {
+    return <div>Loading...</div>; // Or any loading indicator you prefer
+  }
+
+  const about = aboutdata as about;
+
   return (
     <div id="about">
       <Navbar />
@@ -22,16 +41,16 @@ const About = () => {
               </span>
               <span>{about.headingp3}</span>
             </h2>
-            <Image src={segrigator} alt="segrigator" width={100} height={20} />
+            <Image src={segrigator} alt="segrigator" width={100} />
           </div>
           <div className=" aboutBody ">
             <p className="mt-5 mx-10 ">
               {about.para1p1}
-              <span className=" text-primary">{about.para1h1}</span>
+              <span className=" text-primary"> {about.para1h1} </span>
               {about.para1p2}
-              <span className=" text-primary">{about.para1h2}</span>
+              <span className=" text-primary"> {about.para1h2} </span>
               {about.para1p3}
-              <span className=" text-primary">{about.para1h3}</span>
+              <span className=" text-primary"> {about.para1h3} </span>
               {about.para1p4}
             </p>
             {/* <p className="mt-5 mx-10 ">

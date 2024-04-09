@@ -7,6 +7,9 @@ import { BackgroundGradient } from "../ui/background-gradient";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
+import Link from "next/link";
+import { urlFor } from "@/lib/sanity";
+import Img from "../ui/Img";
 
 interface SocialCardProps {
   heading: string;
@@ -39,7 +42,7 @@ export function SocialCard({ heading, socials }: SocialCardProps) {
                   key={i}
                   className=" w-full flex justify-center items-center p-3 pl-5"
                 >
-                  <a
+                  <Link
                     href={s.link}
                     className=" w-full flex justify-center items-center gap-5"
                   >
@@ -47,7 +50,7 @@ export function SocialCard({ heading, socials }: SocialCardProps) {
                       id={socialImgId}
                       initial={{ x: 100, opacity: 0, scaleX: 0, scaleY: 0 }}
                     >
-                      <Image src={s.icon} alt={s.name} width={40} />
+                      {/* <Img img={s.icon} /> */}
                     </motion.div>
                     <motion.div
                       id={socialNameId}
@@ -59,7 +62,7 @@ export function SocialCard({ heading, socials }: SocialCardProps) {
                         <Separator className=" bg-day" />
                       </motion.div>
                     </motion.div>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

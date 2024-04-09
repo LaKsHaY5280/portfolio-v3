@@ -94,7 +94,7 @@ export const InfiniteMovingCards = ({
             }}
             key={idx}
           >
-            <Image className=" rounded-lg" src={item.src} alt={item.alt} />
+            {/* <Image className=" rounded-lg" src={item.src} alt={item.alt} /> */}
           </li>
         ))}
       </ul>

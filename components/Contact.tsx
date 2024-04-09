@@ -1,9 +1,29 @@
 import Navbar from "./elements/Navbar";
 import { ContactForm } from "./elements/ContactForm";
 import { SocialCard } from "./elements/SocialCard";
-import { contact } from "@/constants";
+import { fetchContactData } from "@/constants";
+import { useEffect, useState } from "react";
+import { Contact as contactData } from "@/lib/types";
 
 const Contact = () => {
+  const [contactdata, setContactdata] = useState<contactData | undefined>();
+
+  const loadData = async () => {
+    const data = await fetchContactData();
+    setContactdata(data);
+  };
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  // Check if aboutdata is available before rendering
+  if (!contactdata) {
+    return <div>Loading...</div>; // Or any loading indicator you prefer
+  }
+
+  const contact = contactdata as contactData;
+
   return (
     <div id="contact">
       <Navbar />
@@ -33,11 +53,10 @@ const Contact = () => {
             {contact.or}
           </div>
           <div className=" w-full h-full">
-            <SocialCard heading={contact.right} socials={contact.socials} />
+            {/* <SocialCard heading={contact.right} socials={contact.socials} /> */}
           </div>
         </div>
       </div>
-
     </div>
   );
 };

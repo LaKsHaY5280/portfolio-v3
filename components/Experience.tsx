@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import ExpTable from "./elements/ExpTable";
 import Navbar from "./elements/Navbar";
 import DotCursor from "./mousePointer/DotCursor";
-import { exp } from "@/constants";
+import { fetchExpdata } from "@/constants";
+import { exp } from "@/lib/types";
 
 const Experience = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -35,6 +36,19 @@ const Experience = () => {
   const textEnter = () => setCursorVariant("text");
   const textLeave = () => setCursorVariant("default");
 
+  const [exparr, setExparr] = useState<exp[]>([]);
+
+  const loadData = async () => {
+    const data = await fetchExpdata();
+    setExparr(data);
+  };
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const exp = exparr[0];
+
   return (
     <div>
       <Navbar />
@@ -44,11 +58,17 @@ const Experience = () => {
           onMouseLeave={textLeave}
           className=" homeHeading text-day my-7 xl:pt-10 w-9/12 flex justify-start items-center "
         >
-          <span>{exp.heading}</span>
+          <span>{exp?.heading || "Where I've worked"}</span>
         </h1>
-        {/* <div className=" w-full h-full "> */}
-        <ExpTable card={exp.card} textEnter={textEnter} textLeave={textLeave} />
-        {/* </div> */}
+        {exp?.card ? (
+          <ExpTable
+            card={exp.card}
+            textEnter={textEnter}
+            textLeave={textLeave}
+          />
+        ) : (
+          <div className="text-day">Loading...</div>
+        )}
       </div>
       <DotCursor variants={variants} cursorVariants={cursorVariant} />
     </div>

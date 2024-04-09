@@ -1,10 +1,6 @@
 "use client";
 import Contact from "@/components/Contact";
-import {
-  heroAnimation,
-  navAnimation,
-  socialAnimation,
-} from "@/components/animation/animation";
+import { socialAnimation } from "@/components/animation/animation";
 import Transition from "@/components/elements/Transition";
 import { useAnimate, useInView } from "framer-motion";
 import { useEffect } from "react";
@@ -20,7 +16,6 @@ export default function Home() {
   }, [isInView]);
 
   const animation = async () => {
-    navAnimation();
     setTimeout(() => {
       socialAnimation();
     }, 1000);

@@ -4,9 +4,25 @@ import Msg from "@/assets/Msg";
 import SiteLoader from "@/components/elements/SiteLoader";
 import Navbar from "./elements/Navbar";
 import { MoveUpRight } from "lucide-react";
-import { header } from "@/constants";
+import { useEffect, useState } from "react";
+import { header } from "@/lib/types";
+import { defheader, fetchHeaderdata } from "@/constants";
+import Link from "next/link";
 
 const Header = () => {
+  const [headerarr, setHeaderarr] = useState<header>(defheader);
+
+  const loadData = async () => {
+    const data = await fetchHeaderdata();
+    setHeaderarr(data);
+  };
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const header = headerarr;
+
   return (
     <div id="home">
       <Navbar />
@@ -67,16 +83,15 @@ const Header = () => {
           <p className=" homeCaption flex max-lg:flex-col justify-start lg:items-center gap-1">
             <span>Currently an employee at</span>
             <span className=" flex justify-start items-center gap-2">
-              <a href={header.currentJob.link} target="blank">
+              <Link href={header.currentJob.cjob.link} target="blank">
                 <MoveUpRight
                   className=" xl:w-10 xl:h-10"
-                  // size={}
                   color="#846c5b"
                   strokeWidth={2}
                   absoluteStrokeWidth
                 />
-              </a>
-              <span>{header.currentJob.name}.</span>
+              </Link>
+              <span>{header.currentJob.cjob.companyName}.</span>
             </span>
           </p>
         </motion.div>

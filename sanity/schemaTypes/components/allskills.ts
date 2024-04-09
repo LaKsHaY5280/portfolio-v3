@@ -5,6 +5,7 @@ export const allskills = defineType({
   type: 'document',
   title: 'Allskills',
   fields: [
+    defineField({type: 'string', name: 'name'}),
     defineField({
       name: 'skill',
       type: 'object',

@@ -1,8 +1,28 @@
-import { skills } from "@/constants";
+import { fetchSkillsData } from "@/constants";
 import Navbar from "./elements/Navbar";
 import { SkillCard } from "./elements/SkillCard";
+import { skills } from "@/lib/types";
+import { useEffect, useState } from "react";
 
 const Skills = () => {
+  const [skilldata, setSkilldata] = useState<skills | undefined>();
+
+  const loadData = async () => {
+    const data = await fetchSkillsData();
+    setSkilldata(data);
+  };
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  // Check if aboutdata is available before rendering
+  if (!skilldata) {
+    return <div>Loading...</div>; // Or any loading indicator you prefer
+  }
+
+  const skills = skilldata as skills;
+
   return (
     <div id="skills">
       <Navbar />
@@ -11,9 +31,11 @@ const Skills = () => {
           <span>{skills.heading}</span>
         </h1>
         <div className=" h-full w-full flex flex-wrap justify-around items-start gap-10 ">
-          {skills.skills.map((skill) => (
-            <SkillCard skill={skill} />
-          ))}
+          {skills.skillset.skills
+            ? skills.skillset.skills.map((skill, index) => (
+                <SkillCard key={index} skill={skill} />
+              ))
+            : null}
         </div>
       </div>
     </div>

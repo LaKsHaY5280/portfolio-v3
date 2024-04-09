@@ -8,7 +8,38 @@ import {
   xlogo,
 } from "@/assets/Index";
 
-export const navlinks = [
+import { getAboutData, getContactData, getExpData, getHeaderData, getNavData, getProjData, getSkillsData } from "@/lib/actions";
+
+export const fetchNavlinks = async () => {
+  return await getNavData();
+};
+
+export const fetchHeaderdata = async () => {
+  return await getHeaderData();
+};
+
+export const fetchAboutdata = async () => {
+  return await getAboutData();
+};
+
+export const fetchExpdata = async () => {
+  return await getExpData();
+};
+
+export const fetchSkillsData = async () => {
+  return await getSkillsData();
+};
+
+export const fetchProjData = async () => {
+  return await getProjData();
+};
+
+export const fetchContactData = async () => {
+  return await getContactData();
+};
+
+
+export const defnavlinks = [
   {
     name: "Home",
     link: "/",
@@ -17,68 +48,48 @@ export const navlinks = [
   },
   {
     name: "About",
-    link: "/about",
+    link: "/#about",
     id: "navLi2",
     animatedheight: 6,
   },
   {
     name: "Experience",
-    link: "/experience",
+    link: "/#experience",
     id: "navLi3",
     animatedheight: 8,
   },
   {
     name: "Skills",
-    link: "/skills",
+    link: "/#skills",
     id: "navLi4",
     animatedheight: 10,
   },
   {
-    name: "Project",
-    link: "/project",
+    name: "Projects",
+    link: "/#projects",
     id: "navLi5",
     animatedheight: 12,
   },
   {
     name: "Contact",
-    link: "/contact",
+    link: "/#contact",
     id: "navLi6",
     animatedheight: 14,
   },
 ];
 
-export const header = {
+export const defheader = {
   logo: "L",
   name: "Lakshay Goyal",
   designation: "Web/App Developer",
   hightlight1: "problem solving",
   hightlight2: "collaborative spaces",
   currentJob: {
-    name: "LaungLaachi",
-    link: "https://launglaachi.co/",
+    cjob: {
+      companyName: "LaungLaachi",
+      link: "https://launglaachi.co/",
+    },
   },
-};
-
-export const about = {
-  headingp1: "Welcome to my ",
-  headingp2: " ꙳ little ꙳ ",
-  headingp3: "corner of the internet.",
-
-  para1p1: "I'm a ",
-  para1h1: " full-stack ",
-  para1p2:
-    "developer with a passion for creating beautiful and functional websites. I have made many projects where some of them are",
-  para1h2: " personal projects ",
-  para1p3: "while some are industry grade well polished",
-  para1h3: " SaaS ",
-  para1p4: "and I am always looking for new challenges.",
-
-  parap2p1: "At the end of ",
-  parap2p2: "10",
-  para2p3:
-    "th grade I started learning web development and I have been hooked ever since. While I had no idea at the time, I now know that being a developer means thinking outside the frame.",
-  para3:
-    "Ready for a digital adventure? Reach out with your questions or requirements, and let's bring your vision to life.",
 };
 
 export const exp = {
@@ -117,6 +128,48 @@ export const exp = {
       //   },
     ],
   },
+};
+
+export const langs = {
+  name: "Languages",
+  skills: [
+    {
+      img: htmllogo,
+      name: "HTML",
+    },
+    {
+      img: htmllogo,
+      name: "CSS",
+    },
+    {
+      img: htmllogo,
+      name: "JavaScript",
+    },
+    {
+      img: htmllogo,
+      name: "TypeScript",
+    },
+    {
+      img: htmllogo,
+      name: "C",
+    },
+    {
+      img: htmllogo,
+      name: "C++",
+    },
+    {
+      img: htmllogo,
+      name: "Python",
+    },
+    {
+      img: htmllogo,
+      name: "Java",
+    },
+    {
+      img: htmllogo,
+      name: "Git",
+    },
+  ],
 };
 
 export const frontend = {
@@ -183,74 +236,6 @@ export const backend = {
   ],
 };
 
-export const db = {
-  name: "Databases",
-  skills: [
-    {
-      img: htmllogo,
-      name: "MongoDB",
-    },
-    {
-      img: htmllogo,
-      name: "Appwrite",
-    },
-    {
-      img: htmllogo,
-      name: "Sanity",
-    },
-    {
-      img: htmllogo,
-      name: "Firebase",
-    },
-    {
-      img: htmllogo,
-      name: "SupaBase",
-    },
-  ],
-};
-
-export const langs = {
-  name: "Languages",
-  skills: [
-    {
-      img: htmllogo,
-      name: "HTML",
-    },
-    {
-      img: htmllogo,
-      name: "CSS",
-    },
-    {
-      img: htmllogo,
-      name: "JavaScript",
-    },
-    {
-      img: htmllogo,
-      name: "TypeScript",
-    },
-    {
-      img: htmllogo,
-      name: "C",
-    },
-    {
-      img: htmllogo,
-      name: "C++",
-    },
-    {
-      img: htmllogo,
-      name: "Python",
-    },
-    {
-      img: htmllogo,
-      name: "Java",
-    },
-    {
-      img: htmllogo,
-      name: "Git",
-    },
-  ],
-};
-
 export const others = {
   name: "Others",
   skills: [
@@ -285,11 +270,38 @@ export const others = {
     },
   ],
 };
-
 export const skills = {
-  heading: "Technologies I've acquired",
+  heading: "Capabilities I've acquired",
   skills: [langs, frontend, backend, others],
 };
+
+// export const db = {
+//   name: "Databases",
+//   skills: [
+//     {
+//       img: htmllogo,
+//       name: "MongoDB",
+//     },
+//     {
+//       img: htmllogo,
+//       name: "Appwrite",
+//     },
+//     {
+//       img: htmllogo,
+//       name: "Sanity",
+//     },
+//     {
+//       img: htmllogo,
+//       name: "Firebase",
+//     },
+//     {
+//       img: htmllogo,
+//       name: "SupaBase",
+//     },
+//   ],
+// };
+
+
 
 export const projects = {
   heading: "Wonders I've Made",

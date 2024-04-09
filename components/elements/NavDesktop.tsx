@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { doorCloseAnimation, navLinkPull } from "../animation/animation";
 import { usePathname, useRouter } from "next/navigation";
+import Link from "next/link";
 
 interface NavDesktopprops {
   navlink: {
@@ -48,7 +49,8 @@ const NavDesktop = (navlink: NavDesktopprops) => {
         y: -300,
       }}
     >
-      <a
+      <Link
+        href=""
         className="cursor-pointer w-full h-full flex justify-center items-end"
         onClick={() =>
           handleclick({
@@ -59,7 +61,7 @@ const NavDesktop = (navlink: NavDesktopprops) => {
         }
       >
         {name}
-      </a>
+      </Link>
     </motion.li>
   );
 };

@@ -1,14 +1,42 @@
-import { navlinks } from "@/constants";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NavDesktop from "./NavDesktop";
 import NavMobile from "./NavMobile";
 import { MotionConfig, motion } from "framer-motion";
+import { defnavlinks, fetchNavlinks } from "@/constants";
+import { navlinks } from "@/lib/types";
+import { navAnimation } from "../animation/animation";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const toggleMenu = () => {
     setOpen((prevOpen) => !prevOpen);
   };
+
+  const [navlinks, setNavlinks] = useState<navlinks[]>(
+    defnavlinks as navlinks[]
+  );
+
+  const loadNavlinks = async () => {
+    const data = await fetchNavlinks();
+    // Ensure data[0].navlinks is indeed an array before setting it
+    if (Array.isArray(data[0].navlinks)) {
+      setNavlinks(data[0].navlinks as navlinks[]);
+    } else {
+      console.error(
+        "Expected navlinks to be an array, but received:",
+        data[0].navlinks
+      );
+    }
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await loadNavlinks();
+      await navAnimation();
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div className=" absolute z-50 right-0 ">

@@ -2,17 +2,15 @@
 import Header from "@/components/Header";
 import { heroAnimation, navAnimation } from "@/components/animation/animation";
 import Transition from "@/components/elements/Transition";
-import { useAnimate, useInView } from "framer-motion";
+import { useAnimate } from "framer-motion";
 import { useEffect } from "react";
+import Navbar from "@/components/elements/Navbar";
 
 export default function Home() {
   const [scope] = useAnimate();
-  const isInView = useInView(scope, { once: true, amount: 0.1 });
 
   useEffect(() => {
-    // if (isInView) {
     animation();
-    // }
   }, []);
 
   const animation = async () => {
@@ -23,6 +21,7 @@ export default function Home() {
   return (
     <div ref={scope}>
       <Transition>
+        <Navbar />
         <Header />
       </Transition>
     </div>

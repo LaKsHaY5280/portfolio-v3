@@ -101,7 +101,7 @@ export const navLinkPull = async ({
   animatedheight: number;
 }) => {
   if (id) {
-    const hei = animatedheight * 30;
+    const hei = animatedheight * 25;
     await animate(
       `#${id}`,
       {
