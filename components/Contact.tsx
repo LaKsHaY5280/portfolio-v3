@@ -24,6 +24,7 @@ const Contact = () => {
 
   const contact = contactdata as contactData;
 
+
   return (
     <div id="contact">
       <Navbar />
@@ -53,7 +54,7 @@ const Contact = () => {
             {contact.or}
           </div>
           <div className=" w-full h-full">
-            {/* <SocialCard heading={contact.right} socials={contact.socials} /> */}
+            <SocialCard heading={contact.right} socials={contact.socials} />
           </div>
         </div>
       </div>
