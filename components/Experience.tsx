@@ -40,7 +40,7 @@ const Experience = () => {
 
   const loadData = async () => {
     const data = await fetchExpdata();
-    setExparr(data);
+    setExparr([data]); // Fix: Pass an array of exp objects to setExparr
   };
 
   useEffect(() => {
