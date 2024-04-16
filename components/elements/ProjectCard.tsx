@@ -4,21 +4,11 @@ import { InfiniteMovingCards } from "../ui/infinite-moving-cards";
 import { AnimatedTooltip } from "../ui/animated-tooltip";
 import { ChevronRight, Github, SquareArrowOutUpRight } from "lucide-react";
 import { StaticImageData } from "next/image";
-import { Skill, Tech } from "@/lib/types";
+import { Project, Skill, Tech } from "@/lib/types";
 
 interface ProjectCardProps {
   idx: number;
-  project: {
-    tag: string;
-    title: string;
-    desc: string;
-    role: [];
-    software: [];
-    tech: Tech;
-    github: string;
-    live: string;
-    img: { src: StaticImageData; alt: string }[];
-  };
+  project: Project;
 }
 
 const ProjectCard = ({ idx, project }: ProjectCardProps) => {

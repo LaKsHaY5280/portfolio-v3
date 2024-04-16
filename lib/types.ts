@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 interface Image {
   _type: "image";
   asset: {
@@ -90,7 +92,7 @@ export interface Project {
   tech: Tech[];
   live: string;
   github: string;
-  img: Image[];
+  img: { src: StaticImageData; alt: string }[];
 }
 
 export interface Projects {
