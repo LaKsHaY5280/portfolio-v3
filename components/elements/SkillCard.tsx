@@ -66,7 +66,7 @@ export function SkillCard({ skill: { name, skills } }: SkillCardProps) {
                     id={skillImgId}
                     initial={{ x: 100, opacity: 0, scaleX: 0, scaleY: 0 }}
                   >
-                    <DynamicMotionImg sr={s.skill.img} />
+                    <DynamicMotionImg sr={s.skill.img} width={50} />
                   </motion.div>
                   <motion.div
                     id={skillNameId}
