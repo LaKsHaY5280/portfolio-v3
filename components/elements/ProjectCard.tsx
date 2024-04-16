@@ -3,8 +3,7 @@
 import { InfiniteMovingCards } from "../ui/infinite-moving-cards";
 import { AnimatedTooltip } from "../ui/animated-tooltip";
 import { ChevronRight, Github, SquareArrowOutUpRight } from "lucide-react";
-import { StaticImageData } from "next/image";
-import { Project, Skill, Tech } from "@/lib/types";
+import { Project } from "@/lib/types";
 
 interface ProjectCardProps {
   idx: number;

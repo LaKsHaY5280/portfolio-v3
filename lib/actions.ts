@@ -12,7 +12,7 @@ export const getNavData = async () => {
         }
         `;
 
-  return (await client.fetch(query)) as navlinks[];
+  return await client.fetch(query);
 };
 
 export const getHeaderData = async () => {

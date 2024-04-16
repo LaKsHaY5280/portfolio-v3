@@ -17,10 +17,10 @@ const Navbar = () => {
   );
 
   const loadNavlinks = async () => {
-    const data = await fetchNavlinks();
+    const data: { navlinks: navlinks[] }[] = await fetchNavlinks();
     // Ensure data[0].navlinks is indeed an array before setting it
     if (Array.isArray(data[0].navlinks)) {
-      setNavlinks(data[0].navlinks as navlinks[]);
+      setNavlinks(data[0].navlinks);
     } else {
       console.error(
         "Expected navlinks to be an array, but received:",
