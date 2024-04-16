@@ -7,7 +7,6 @@ import { BackgroundGradient } from "../ui/background-gradient";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
-import Img from "../ui/Img";
 import { Social } from "@/lib/types";
 import dynamic from "next/dynamic";
 
