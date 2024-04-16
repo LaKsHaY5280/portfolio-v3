@@ -6,18 +6,18 @@ import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
 import { BackgroundGradient } from "../ui/background-gradient";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
-import Image from "next/image";
 import Link from "next/link";
-import { urlFor } from "@/lib/sanity";
 import Img from "../ui/Img";
+import { Social } from "@/lib/types";
+import dynamic from "next/dynamic";
+
+const DynamicMotionImg = dynamic(() => import("./dynimg"), {
+  ssr: false,
+});
 
 interface SocialCardProps {
   heading: string;
-  socials: {
-    name: string;
-    link: string;
-    icon: string;
-  }[];
+  socials: Social[];
 }
 
 export function SocialCard({ heading, socials }: SocialCardProps) {
@@ -50,7 +50,7 @@ export function SocialCard({ heading, socials }: SocialCardProps) {
                       id={socialImgId}
                       initial={{ x: 100, opacity: 0, scaleX: 0, scaleY: 0 }}
                     >
-                      {/* <Img img={s.icon} /> */}
+                      <DynamicMotionImg sr={s.icon} />
                     </motion.div>
                     <motion.div
                       id={socialNameId}

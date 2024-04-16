@@ -6,8 +6,11 @@ import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
 import { BackgroundGradient } from "../ui/background-gradient";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
-import Img from "../ui/Img";
+import dynamic from "next/dynamic";
 
+const DynamicMotionImg = dynamic(() => import("./dynimg"), {
+  ssr: false,
+});
 interface SkillCardProps {
   skill: {
     name: string;
@@ -63,7 +66,7 @@ export function SkillCard({ skill: { name, skills } }: SkillCardProps) {
                     id={skillImgId}
                     initial={{ x: 100, opacity: 0, scaleX: 0, scaleY: 0 }}
                   >
-                    {/* <Img img={s.skill.img} /> */}
+                    <DynamicMotionImg sr={s.skill.img} />
                   </motion.div>
                   <motion.div
                     id={skillNameId}
@@ -72,7 +75,6 @@ export function SkillCard({ skill: { name, skills } }: SkillCardProps) {
                   >
                     <motion.div className=" aboutBody text-center">
                       {s.skill.name}
-                      {/* {console.log(s.skills)} */}
                       <Separator className=" bg-day" />
                     </motion.div>
                   </motion.div>
