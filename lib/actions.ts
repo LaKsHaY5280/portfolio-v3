@@ -112,7 +112,8 @@ export const getProjData = async () => {
       }
       },
       live,
-      github
+      github,
+      img
     }
   }
     `;

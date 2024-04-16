@@ -17,12 +17,14 @@ interface ProjectCardProps {
     tech: Tech;
     github: string;
     live: string;
-    img: { id: number; src: StaticImageData; alt: string }[];
+    img: { src: StaticImageData; alt: string }[];
   };
 }
 
 const ProjectCard = ({ idx, project }: ProjectCardProps) => {
   const { tag, title, desc, role, software, tech, github, live, img } = project;
+
+  // console.log(img);
 
   const isEvenIdx = idx % 2 === 0;
 
@@ -73,27 +75,23 @@ const ProjectCard = ({ idx, project }: ProjectCardProps) => {
               ))}
             </p>
           </div>
-          <div className=" absolute z-20 -bottom-32 left-0 flex justify-between items-center mx-5 my-10 ">
-            <div className=" w-full flex flex-wrap justify-center items-center gap-10">
+          <div className=" absolute z-20 -bottom-32 left-0 w-full flex justify-between items-center mx-5 pr-10 my-10 ">
+            <div className=" w-full flex flex-wrap justify-between items-center gap-10">
               <div className=" flex items-center">
-                {project.tech ? (
-                  <AnimatedTooltip items={[project.tech]} /> // Fix: Wrap project.tech in an array
-                ) : (
-                  <div>Loading</div>
-                )}
+                {tech ? <AnimatedTooltip items={[tech]} /> : <div>Loading</div>}
               </div>
               <div className=" flex justify-between items-center gap-10 ">
                 <a href={github}>
                   <Github
-                    className=" lg:w-10 lg:h-10"
                     color="#846c5b"
+                    width={25}
                     strokeWidth={2}
                     absoluteStrokeWidth
                   />
                 </a>
                 <a href={live}>
                   <SquareArrowOutUpRight
-                    className=" lg:w-10 lg:h-10"
+                    width={25}
                     color="#846c5b"
                     strokeWidth={2}
                     absoluteStrokeWidth
@@ -106,11 +104,12 @@ const ProjectCard = ({ idx, project }: ProjectCardProps) => {
       </div>
 
       <div className=" xl:w-[45%] h-full flex justify-between items-center gap-10">
-        {/* <InfiniteMovingCards
+        <InfiniteMovingCards
+          id={idx}
           items={img}
           direction={isEvenIdx ? "right" : "left"}
-          speed="slow"
-        /> */}
+          speed="normal"
+        />
       </div>
     </div>
   );

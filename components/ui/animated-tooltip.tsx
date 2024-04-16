@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import React, { useState } from "react";
 import {
   motion,
@@ -9,6 +8,12 @@ import {
   useSpring,
 } from "framer-motion";
 import { Skill } from "@/lib/types";
+
+import dynamic from "next/dynamic";
+
+const DynamicMotionImg = dynamic(() => import("@/components/elements/dynimg"), {
+  ssr: false,
+});
 
 export const AnimatedTooltip = ({
   items,
@@ -77,14 +82,14 @@ export const AnimatedTooltip = ({
                 <div className="text-primary text-xs">{level}</div>
               </motion.div>
             )}
-            {/* <Image
-            onMouseMove={handleMouseMove}
-            height={100}
-            width={100}
-            src={img}
-            alt={name}
-            className="object-cover !m-0 !p-0 object-top  h-14 w-14 group-hover:scale-105 group-hover:z-30   relative transition duration-500 max-lg:w-10 max-lg:h-10"
-          /> */}
+            <DynamicMotionImg
+              onMouseMove={handleMouseMove}
+              height={50}
+              width={25}
+              sr={img as any}
+              alt={name}
+              className="object-cover !m-0 !p-0 object-top group-hover:scale-105 group-hover:z-30   relative transition duration-500"
+            />
           </div>
         );
       })}

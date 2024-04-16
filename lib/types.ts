@@ -85,11 +85,12 @@ export interface Project {
   tag: string;
   title: string;
   desc: string;
-  role: string[];
-  software: string[];
+  role: [];
+  software: [];
   tech: Tech[];
   live: string;
   github: string;
+  img: Image[];
 }
 
 export interface Projects {

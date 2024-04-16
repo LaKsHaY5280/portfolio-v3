@@ -1,16 +1,23 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import Image, { StaticImageData } from "next/image";
+import { StaticImageData } from "next/image";
 import React, { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+
+const DynamicMotionImg = dynamic(() => import("@/components/elements/dynimg"), {
+  ssr: false,
+});
 
 export const InfiniteMovingCards = ({
+  id,
   items,
   direction = "left",
   speed = "fast",
   pauseOnHover = true,
   className,
 }: {
+  id: number;
   items: {
     src: StaticImageData;
     alt: string;
@@ -26,7 +33,11 @@ export const InfiniteMovingCards = ({
   useEffect(() => {
     addAnimation();
   }, []);
+
+  console.log("items", items);
+
   const [start, setStart] = useState(false);
+
   function addAnimation() {
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children);
@@ -43,6 +54,7 @@ export const InfiniteMovingCards = ({
       setStart(true);
     }
   }
+
   const getDirection = () => {
     if (containerRef.current) {
       if (direction === "left") {
@@ -58,6 +70,7 @@ export const InfiniteMovingCards = ({
       }
     }
   };
+
   const getSpeed = () => {
     if (containerRef.current) {
       if (speed === "fast") {
@@ -69,11 +82,24 @@ export const InfiniteMovingCards = ({
       }
     }
   };
+
+  useEffect(() => {
+    if (containerRef.current) {
+      containerRef.current.id = `container-${id}`;
+    }
+  }, [id]);
+
+  useEffect(() => {
+    if (scrollerRef.current) {
+      scrollerRef.current.id = `scroller-${id}`;
+    }
+  }, [id]);
+
   return (
     <div
       ref={containerRef}
       className={cn(
-        "scroller relative z-20  max-w-3xl overflow-hidden  [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+        "scroller z-20  max-w-3xl overflow-hidden  [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
         className
       )}
     >
@@ -87,14 +113,14 @@ export const InfiniteMovingCards = ({
       >
         {items.map((item, idx) => (
           <li
-            className="w-[20rem]  relative rounded-2xl flex-shrink-0  md:w-[40rem]"
-            style={{
-              background:
-                "linear-gradient(180deg, var(--slate-800), var(--slate-900)",
-            }}
+            className="w-[20rem] rounded-2xl flex-shrink-0  md:w-[40rem]"
             key={idx}
           >
-            {/* <Image className=" rounded-lg" src={item.src} alt={item.alt} /> */}
+            <DynamicMotionImg
+              className=" rounded-lg w-3/4 h-full object-cover"
+              sr={item.src}
+              alt={item.alt}
+            />
           </li>
         ))}
       </ul>
