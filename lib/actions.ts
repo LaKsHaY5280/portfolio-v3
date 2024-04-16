@@ -71,7 +71,7 @@ export const getExpData = async () => {
   }
     `;
 
-  return (await client.fetch(query)) as exp;
+  return (await client.fetch(query));
 };
 
 export const getSkillsData = async () => {
