@@ -138,3 +138,14 @@ export const getContactData = async () => {
 
   return await client.fetch(query);
 };
+
+export const getSocialData = async () => {
+  const query = `*[_type == "socials"]{
+    name,
+    link,
+    icon,
+  }
+    `;
+
+  return await client.fetch(query);
+};

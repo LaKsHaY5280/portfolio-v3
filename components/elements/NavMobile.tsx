@@ -2,10 +2,17 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { doorCloseAnimation } from "../animation/animation";
 import { usePathname, useRouter } from "next/navigation";
-import { socials } from "@/constants";
 import Image from "next/image";
 import { Separator } from "../ui/separator";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { fetchSocialData } from "@/constants";
+import { Social as SocialData } from "@/lib/types";
+import dynamic from "next/dynamic";
+
+const DynamicMotionImg = dynamic(() => import("./dynimg"), {
+  ssr: false,
+});
 
 const NavMobile = ({
   open,
@@ -54,6 +61,24 @@ const NavMobile = ({
     },
   };
 
+  const [socialdata, setSocialdata] = useState<SocialData[] | undefined>();
+
+  const loadData = async () => {
+    const data = await fetchSocialData();
+    setSocialdata(data);
+  };
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  // Check if aboutdata is available before rendering
+  if (!socialdata) {
+    return <div>Loading...</div>; // Or any loading indicator you prefer
+  }
+
+  const socials = socialdata as SocialData[];
+
   return (
     <AnimatePresence>
       {open && (
@@ -91,7 +116,7 @@ const NavMobile = ({
                     className=" w-full flex justify-center items-center gap-5"
                   >
                     <motion.div whileHover={{ scale: 1.1 }}>
-                      <Image src={s.icon} alt={s.name} width={40} />
+                      <DynamicMotionImg sr={s.icon} alt={s.name} width={40} />
                     </motion.div>
                   </Link>
                 </div>

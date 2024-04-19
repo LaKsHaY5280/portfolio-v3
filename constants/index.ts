@@ -6,6 +6,7 @@ import {
   getNavData,
   getProjData,
   getSkillsData,
+  getSocialData,
 } from "@/lib/actions";
 
 export const fetchNavlinks = async () => {
@@ -34,6 +35,9 @@ export const fetchProjData = async () => {
 
 export const fetchContactData = async () => {
   return await getContactData();
+};
+export const fetchSocialData = async () => {
+  return await getSocialData();
 };
 
 export const defnavlinks = [
