@@ -5,6 +5,5 @@ import linkedin from "./linkedin.svg";
 import github from "./github.svg";
 import mail from "./mail.png";
 import segrigator from "./segrigator.png";
-import htmllogo from "./skills/langs/html.png";
 
-export { htmllogo, ssbglg, github, insta, linkedin, mail, xlogo, segrigator };
+export { ssbglg, github, insta, linkedin, mail, xlogo, segrigator };
