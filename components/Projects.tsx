@@ -26,7 +26,7 @@ const Projects = () => {
   return (
     <div id="projects" className=" overflow-hidden">
       <Navbar />
-      <div className=" bg-night h-full w-full flex flex-col justify-center items-center pt-10 px-2 pb-2 overflow-hidden">
+      <div className=" bg-night h-full w-full flex flex-col justify-center items-center pt-10 px-2 pb-16 overflow-hidden">
         <h1 className=" homeHeading text-day mb-7 px-10 lg:pt-16 w-9/12 flex justify-start items-center ">
           <span>{projects.heading}</span>
         </h1>

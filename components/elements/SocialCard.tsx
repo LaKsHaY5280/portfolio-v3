@@ -49,7 +49,7 @@ export function SocialCard({ heading, socials }: SocialCardProps) {
                       id={socialImgId}
                       initial={{ x: 100, opacity: 0, scaleX: 0, scaleY: 0 }}
                     >
-                      <DynamicMotionImg sr={s.icon} />
+                      <DynamicMotionImg sr={s.icon} width={50} />
                     </motion.div>
                     <motion.div
                       id={socialNameId}

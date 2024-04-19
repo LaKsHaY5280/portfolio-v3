@@ -37,7 +37,7 @@ const Contact = () => {
             {contact.subHeading}
           </p>
         </div>
-        <div className=" mt-5  h-full w-full flex max-lg:flex-col-reverse justify-around items-center gap-10 ">
+        <div className=" mt-5  h-full w-full flex max-xl:flex-col-reverse justify-around items-center gap-10 ">
           <div className=" w-full h-full text-xl leading-[2.27rem] tracking-[0.15rem] font-['Snow'] text-day ">
             <div className=" max-h-fit pt-2 h-full w-full dark:bg-black bg-secondary  dark:bg-dot-white/[0.2] bg-dot-white/[0.2] relative flex items-center justify-center rounded-lg">
               <div className=" rounded-lg absolute pointer-events-none inset-0 flex items-center justify-center da rk:bg-black bg-secondary [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
@@ -53,7 +53,7 @@ const Contact = () => {
           <div className=" w-1/6 flex justify-center items-center text-4xl leading-[3.5rem] tracking-[0.2rem] font-['Snow']">
             {contact.or}
           </div>
-          <div className=" w-full h-full">
+          <div className=" w-full xl:w-9/12 h-full">
             <SocialCard heading={contact.right} socials={contact.socials} />
           </div>
         </div>

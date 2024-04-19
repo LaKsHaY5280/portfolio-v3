@@ -35,7 +35,7 @@ const ProjectCard = ({ idx, project }: ProjectCardProps) => {
           <div className="absolute pointer-events-none inset-0 flex items-center justify-center da rk:bg-black bg-secondary [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
           <div className=" z-20 bg-clip-text text-transparent bg-gradient-to-b from-day to-primary h-full w-full flex flex-col justify-around items-start gap-5 px-10 py-5">
             <h2 className=" font-bold homeBody">{title}</h2>
-            <p className=" homeCaption ">{desc}</p>
+            <p className=" skillname ">{desc}</p>
             <div className=" -mt-3 text-sm font-bold leading-[2.27rem] tracking-[0.15rem] flex flex-wrap justify-around items-center gap-5">
               {role.map((role, idx) => (
                 <span
@@ -66,26 +66,30 @@ const ProjectCard = ({ idx, project }: ProjectCardProps) => {
           </div>
           <div className=" absolute z-20 -bottom-32 left-0 w-full flex justify-between items-center mx-5 pr-10 my-10 ">
             <div className=" w-full flex flex-wrap justify-between items-center gap-10">
-              <div className=" flex items-center">
+              <div className=" w-3/4 flex justify-start items-center gap-5">
                 {tech ? <AnimatedTooltip items={[tech]} /> : <div>Loading</div>}
               </div>
               <div className=" flex justify-between items-center gap-10 ">
-                <a href={github}>
-                  <Github
-                    color="#846c5b"
-                    width={25}
-                    strokeWidth={2}
-                    absoluteStrokeWidth
-                  />
-                </a>
-                <a href={live}>
-                  <SquareArrowOutUpRight
-                    width={25}
-                    color="#846c5b"
-                    strokeWidth={2}
-                    absoluteStrokeWidth
-                  />
-                </a>
+                {github && (
+                  <a href={github}>
+                    <Github
+                      color="#846c5b"
+                      width={25}
+                      strokeWidth={2}
+                      absoluteStrokeWidth
+                    />
+                  </a>
+                )}
+                {live && (
+                  <a href={live}>
+                    <SquareArrowOutUpRight
+                      width={25}
+                      color="#846c5b"
+                      strokeWidth={2}
+                      absoluteStrokeWidth
+                    />
+                  </a>
+                )}
               </div>
             </div>
           </div>

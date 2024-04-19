@@ -34,7 +34,6 @@ export const InfiniteMovingCards = ({
     addAnimation();
   }, []);
 
-  console.log("items", items);
 
   const [start, setStart] = useState(false);
 
@@ -117,7 +116,7 @@ export const InfiniteMovingCards = ({
             key={idx}
           >
             <DynamicMotionImg
-              className=" rounded-lg w-3/4 h-full object-cover"
+              className=" rounded-lg w-full h-full object-cover"
               sr={item.src}
               alt={item.alt}
             />
